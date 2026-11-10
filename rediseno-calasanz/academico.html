@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Académico — Calasanz Chía</title>
+<meta name="robots" content="noindex, nofollow"> <!-- PROTOTIPO: borrar al publicar como sitio oficial -->
+<meta name="description" content="Prototipo conceptual: plan de estudios por grado, sistema de evaluación, proyectos y directorio docente del Colegio San José de Calasanz (Chía). No es el sitio oficial.">
+<link rel="icon" href="img/escudo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="estilos.css?v=13">
+<style>
+/* Colores por área del plan de estudios */
+:root{--a-hum:var(--purple); --a-mat:var(--blue); --a-cie:var(--green); --a-soc:var(--orange); --a-esp:var(--violet); --a-cue:var(--teal); --a-art:var(--yellow); --a-tec:var(--navy)}
+.c-bajo{--c:#E5484D} .c-basico{--c:var(--yellow)} .c-alto{--c:var(--teal)} .c-superior{--c:var(--green)}
+
+/* ============ Hero: un día de clase ============ */
+.daycard{position:relative; background:#fff; color:var(--ink); border-radius:var(--radius); padding:30px 22px 22px; box-shadow:0 30px 60px -30px rgba(0,0,0,.6); max-width:460px; width:100%; margin:0 auto}
+.daycard .tape{position:absolute; top:-14px; right:22px; background:var(--yellow); color:var(--navy); font-weight:800; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding:7px 12px; border-radius:8px; transform:rotate(3deg)}
+.daycard h2{font-size:1.4rem; margin-bottom:16px}
+.daycard ol{list-style:none; margin:0; padding:0; display:grid; gap:4px; position:relative}
+.daycard ol::before{content:""; position:absolute; left:43px; top:14px; bottom:14px; width:2px; background:var(--line)}
+.daycard li{position:relative; display:grid; grid-template-columns:88px 1fr; gap:14px; align-items:start; padding:8px 0}
+.daycard .t{position:relative; z-index:1; justify-self:center; padding:6px 10px; border-radius:999px; background:var(--navy); color:var(--yellow); font:800 .8rem var(--display); white-space:nowrap}
+.daycard li:first-child .t{background:var(--yellow); color:var(--navy)}
+.daycard b{display:block; color:var(--navy); line-height:1.25}
+.daycard small{display:block; color:var(--gray); font-size:.84rem; line-height:1.4}
+
+/* ============ Mi grado ============ */
+.picker{display:grid; gap:14px; margin-bottom:24px}
+@media (min-width:900px){.picker{grid-template-columns:auto auto auto auto; justify-content:center; gap:22px}}
+.pgroup small{display:block; font-size:.72rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); margin:0 0 8px 4px}
+.pgroup div{display:flex; flex-wrap:wrap; gap:6px}
+.gchip{min-width:46px; padding:10px 14px; border-radius:14px; border:2px solid var(--line); background:#fff; font:800 .95rem var(--display); color:var(--navy); cursor:pointer; transition:background .2s, border-color .2s, color .2s, transform .15s}
+.gchip:hover{border-color:var(--navy)}
+.gchip:active{transform:scale(.95)}
+.gchip[aria-pressed="true"]{background:var(--navy); border-color:var(--navy); color:var(--yellow)}
+.gpanel{display:grid; gap:16px}
+@media (min-width:960px){.gpanel{grid-template-columns:1.5fr 1fr; align-items:start}}
+.week{padding:26px 22px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); min-width:0}
+.week-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; margin-bottom:6px}
+.week-head h3{font-size:1.6rem}
+.lvl{font-size:.78rem; font-weight:800; padding:6px 12px; border-radius:999px; background:var(--yellow-tint); color:var(--navy)}
+.week-sub{color:var(--gray); font-size:.92rem; margin-bottom:16px}
+.legend{display:flex; flex-wrap:wrap; gap:6px 14px; margin-bottom:16px; font-size:.78rem; font-weight:700; color:var(--gray)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:10px; height:10px; border-radius:3px; background:var(--c)}
+.subjects{list-style:none; margin:0; padding:0; display:grid; gap:9px}
+@media (min-width:640px){.subjects{grid-template-columns:1fr 1fr; column-gap:24px}}
+.subjects li{display:grid; grid-template-columns:minmax(0,1fr) 30px; gap:4px 10px; align-items:center}
+.subjects .nm{font-size:.9rem; font-weight:600; color:var(--ink); line-height:1.25}
+.subjects .h{grid-row:span 2; align-self:end; text-align:right; font:800 1.05rem var(--display); color:var(--navy)}
+.subjects .bar{height:10px; border-radius:6px; background:var(--soft); overflow:hidden}
+.subjects .bar i{display:block; height:100%; border-radius:6px; background:var(--c); width:0; transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.subjects .dims{grid-column:1/-1; font-size:.8rem; color:var(--gray)}
+.week .note{margin-top:16px; font-size:.8rem; color:var(--gray)}
+.gside{display:grid; gap:12px}
+.mentor{padding:22px; border-radius:var(--radius); background:var(--navy); color:#D5E1EB}
+.mentor .kicker{color:var(--yellow)}
+.mentor ul{list-style:none; margin:12px 0 0; padding:0; display:grid; gap:12px}
+.mentor li{display:flex; align-items:center; gap:12px}
+.avatar{flex:none; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; background:var(--yellow); color:var(--navy); font:800 1rem var(--display)}
+.mentor b{display:block; color:#fff; line-height:1.25}
+.mentor a{color:#B9CAD8; font-size:.82rem; overflow-wrap:anywhere; text-decoration:none}
+.mentor a:hover{color:var(--yellow)}
+.listcard{display:flex; align-items:center; gap:14px; padding:18px 20px; border-radius:var(--radius); background:var(--yellow); color:var(--navy); text-decoration:none; transition:transform .2s}
+.listcard:hover{transform:translateY(-3px)}
+.listcard .ico{flex:none; width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:var(--navy); color:var(--yellow)}
+.listcard b{display:block; font-family:var(--display); font-size:1.1rem}
+.listcard small{display:block; font-size:.85rem}
+.listcard > .icon{margin-left:auto}
+.total{display:flex; align-items:center; gap:14px; padding:18px 20px; border-radius:var(--radius); background:var(--soft)}
+.total b{font:800 2.4rem/1 var(--display); color:var(--navy)}
+.total span{font-size:.88rem; color:var(--gray); line-height:1.4}
+
+/* ============ Cómo aprendemos ============ */
+.ways{display:grid; gap:14px}
+@media (min-width:640px){.ways{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.ways{grid-template-columns:repeat(4,1fr)}}
+.way{position:relative; overflow:hidden; isolation:isolate; padding:26px 22px; border-radius:var(--radius); background:var(--c); color:var(--tc, #fff); display:flex; flex-direction:column; gap:10px; min-height:230px}
+.way .big{position:absolute; z-index:-1; right:-16px; bottom:-16px; width:120px; height:120px; opacity:.16; stroke-width:1.5}
+.way .ico{width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:rgba(255,255,255,.2)}
+.way h3{color:inherit; font-size:1.3rem}
+.way p{font-size:.92rem; line-height:1.5; opacity:.92}
+.methods{margin-top:28px; padding:28px 22px; border-radius:32px; background:var(--soft); text-align:center}
+.methods h3{font-size:clamp(1.3rem,2.6vw,1.7rem)}
+.methods .cloud{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:18px}
+.methods .cloud span{font-weight:700; font-size:.9rem; padding:9px 16px; border-radius:999px; background:#fff; color:var(--navy); border:1px solid var(--line)}
+.methods .cloud span:nth-child(3n+1){background:var(--yellow); border-color:var(--yellow)}
+.methods .cloud span:nth-child(5n+2){background:var(--navy); color:#fff; border-color:var(--navy)}
+.methods p{margin-top:16px; font-size:.82rem; color:var(--gray)}
+
+/* ============ Evaluación ============ */
+.eval-top{display:grid; gap:16px}
+@media (min-width:960px){.eval-top{grid-template-columns:1fr 1fr}}
+.ecard{padding:26px 22px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); min-width:0}
+.ecard h3{font-size:1.35rem; margin-bottom:14px}
+.stack{display:flex; height:54px; border-radius:16px; overflow:hidden}
+.stack span{display:grid; place-items:center; background:var(--c); color:var(--tc, #fff); font:800 .95rem var(--display); min-width:0}
+.stack-legend{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:8px}
+.stack-legend li{display:grid; grid-template-columns:14px 1fr auto; gap:10px; align-items:center; font-size:.9rem}
+.stack-legend i{width:14px; height:14px; border-radius:4px; background:var(--c)}
+.stack-legend b{font-family:var(--display); color:var(--navy)}
+.stack-legend small{grid-column:2/-1; color:var(--gray); font-size:.8rem; margin-top:-6px}
+.scale{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.scale li{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:center; padding:12px 14px; border-radius:14px; background:var(--soft); border-left:6px solid var(--c)}
+.scale b{font:800 1.05rem var(--display); color:var(--navy)}
+.scale span{font-size:.88rem; color:var(--ink); line-height:1.35}
+.scale strong{display:block; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--navy)}
+.trunc{margin-top:12px; font-size:.84rem; color:var(--gray); padding:10px 12px; border-radius:12px; background:var(--cream)}
+
+.sim{margin-top:16px; display:grid; gap:16px; padding:26px 20px; border-radius:32px; background:linear-gradient(135deg, var(--soft), var(--yellow-tint))}
+@media (min-width:768px){.sim{padding:40px}}
+@media (min-width:960px){.sim{grid-template-columns:1.1fr .9fr; align-items:center; gap:36px}}
+.sim h3{font-size:clamp(1.5rem,3vw,2.1rem); margin-top:10px}
+.sim .lead{color:var(--gray); margin:6px 0 18px}
+.slider{display:grid; grid-template-columns:1fr 56px; gap:4px 12px; align-items:center; padding:12px 0; border-bottom:1px dashed var(--line)}
+.slider label{font-weight:700; color:var(--navy); font-size:.95rem}
+.slider label small{font-weight:600; color:var(--gray); margin-left:6px}
+.slider output{grid-row:span 2; text-align:center; font:800 1.25rem var(--display); color:var(--navy); background:#fff; border-radius:12px; padding:8px 0; border:1px solid var(--line)}
+.slider input{width:100%; accent-color:var(--navy); margin:0}
+.result{padding:26px 22px; border-radius:var(--radius); background:var(--navy); color:#D5E1EB; text-align:center}
+.result .lbl{font-size:.75rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#9FB3C4}
+.result .grade{font:800 clamp(3.6rem,8vw,4.6rem)/1 var(--display); color:#fff; margin:8px 0 6px; letter-spacing:-.03em}
+.badge-d{display:inline-block; padding:7px 14px; border-radius:999px; background:var(--c); color:var(--navy); font-weight:800; font-size:.85rem}
+.meter{position:relative; margin:22px 0 6px; height:12px; border-radius:8px; display:flex; overflow:visible}
+.meter span{height:100%; background:var(--c)}
+.meter span:first-child{border-radius:8px 0 0 8px} .meter span:last-child{border-radius:0 8px 8px 0}
+.meter .pin{position:absolute; top:-7px; width:6px; height:26px; border-radius:4px; background:#fff; box-shadow:0 0 0 3px var(--navy); transform:translateX(-50%); transition:left .3s}
+.meter-labels{display:flex; justify-content:space-between; font-size:.72rem; color:#9FB3C4}
+.need{margin-top:16px; padding:12px 14px; border-radius:14px; background:rgba(255,255,255,.08); font-size:.9rem; line-height:1.45; color:#fff; text-align:left}
+.result .fine{margin-top:10px; font-size:.76rem; color:#9FB3C4}
+
+.terms{display:grid; gap:12px; margin-top:16px}
+@media (min-width:880px){.terms{grid-template-columns:repeat(3,1fr)}}
+.term{padding:20px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); display:flex; gap:16px; align-items:center}
+.term b{flex:none; width:64px; height:64px; border-radius:18px; display:grid; place-items:center; background:var(--navy); color:var(--yellow); font:800 1.2rem var(--display)}
+.term h4{font-family:var(--display); color:var(--navy); font-size:1.1rem}
+.term p{font-size:.88rem; color:var(--gray); line-height:1.45}
+.rules3{display:grid; gap:14px; margin-top:16px}
+@media (min-width:880px){.rules3{grid-template-columns:repeat(3,1fr)}}
+.rule{padding:24px 22px; border-radius:var(--radius); border-top:6px solid var(--c); background:#fff; border-left:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line)}
+.rule h3{font-size:1.2rem; margin-bottom:12px}
+.rule ul{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.rule li{display:flex; gap:10px; font-size:.9rem; line-height:1.45; color:var(--ink)}
+.rule li .icon{flex:none; color:var(--c); margin-top:2px; width:1.1em; height:1.1em}
+.rule .num{flex:none; min-width:46px; padding:2px 0; border-radius:8px; background:var(--soft); text-align:center; font:800 .85rem var(--display); color:var(--navy); height:fit-content}
+.chain{margin-top:16px; padding:24px 22px; border-radius:var(--radius); background:var(--navy); color:#D5E1EB}
+.chain h3{color:#fff; font-size:1.2rem}
+.chain p{font-size:.88rem; margin-top:4px}
+.chain ol{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:8px; counter-reset:ch}
+.chain li{counter-increment:ch; display:inline-flex; align-items:center; gap:8px; padding:9px 14px; border-radius:999px; background:rgba(255,255,255,.08); color:#fff; font-weight:700; font-size:.88rem}
+.chain li::before{content:counter(ch); width:22px; height:22px; border-radius:50%; display:grid; place-items:center; background:var(--yellow); color:var(--navy); font:800 .75rem var(--display)}
+.eval-cta{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:24px}
+
+/* ============ Proyectos ============ */
+.projects{display:grid; gap:12px; grid-template-columns:repeat(auto-fill, minmax(230px,1fr))}
+.proj{position:relative; overflow:hidden; isolation:isolate; padding:22px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); display:flex; flex-direction:column; gap:8px; transition:transform .2s, box-shadow .2s}
+.proj:hover{transform:translateY(-4px) rotate(-.5deg); box-shadow:var(--shadow)}
+.proj .ico{width:46px; height:46px; border-radius:14px; display:grid; place-items:center; background:var(--c); color:var(--ic, #fff)}
+.proj h3{font-size:1.15rem}
+.proj p{font-size:.88rem; color:var(--gray); line-height:1.45}
+
+/* ============ Docentes ============ */
+.leaders{display:grid; gap:12px}
+@media (min-width:640px){.leaders{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.leaders{grid-template-columns:repeat(4,1fr)}}
+.leader{padding:22px; border-radius:var(--radius); background:var(--navy); color:#D5E1EB; display:flex; flex-direction:column; gap:10px}
+.leader .avatar{width:52px; height:52px}
+.leader small{font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow)}
+.leader b{display:block; font-family:var(--display); color:#fff; font-size:1.15rem; line-height:1.2}
+.leader a.mail{color:#B9CAD8; font-size:.82rem; overflow-wrap:anywhere; text-decoration:none}
+.leader a.mail:hover{color:var(--yellow)}
+.leader .btn{align-self:flex-start; margin-top:auto}
+.finder{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; margin:28px 0 16px}
+.finder h3{font-size:1.35rem}
+.search{position:relative; flex:1 1 280px; max-width:420px}
+.search input{width:100%; padding:13px 16px 13px 44px; border-radius:999px; border:2px solid var(--line); background:#fff; font:600 .95rem var(--body); color:var(--navy)}
+.search input:focus{outline:none; border-color:var(--navy)}
+.search .icon{position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--gray)}
+.people{display:grid; gap:10px; grid-template-columns:repeat(auto-fill, minmax(250px,1fr))}
+.person{display:flex; align-items:center; gap:12px; padding:14px; border-radius:var(--radius-sm); background:#fff; border:1px solid var(--line); min-width:0}
+.person .avatar{width:44px; height:44px; font-size:.9rem; background:var(--c, var(--yellow)); color:var(--ic, var(--navy))}
+.person b{display:block; color:var(--navy); line-height:1.25}
+.person small{display:block; font-size:.8rem; color:var(--gray)}
+.person a{display:block; font-size:.78rem; color:var(--blue); overflow-wrap:anywhere; text-decoration:none; font-weight:600}
+.person a:hover{text-decoration:underline}
+.person > span{min-width:0}
+.person[hidden],.legend[hidden]{display:none}
+.empty{grid-column:1/-1; padding:18px; border-radius:var(--radius-sm); background:var(--soft); color:var(--gray); text-align:center}
+.appt{margin-top:16px; padding:14px 18px; border-radius:var(--radius-sm); background:var(--cream); font-size:.9rem; color:var(--ink); display:flex; gap:10px; align-items:flex-start}
+.appt .icon{flex:none; color:var(--orange); margin-top:2px}
+.appt span{min-width:0} .appt a{color:var(--blue); font-weight:700; overflow-wrap:anywhere}
+
+/* ============ Textos y plataformas ============ */
+.tools{display:grid; gap:14px}
+@media (min-width:640px){.tools{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.tools{grid-template-columns:repeat(4,1fr)}}
+.tool{padding:24px 22px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); display:flex; flex-direction:column; gap:10px}
+.tool .ico{width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:var(--c); color:var(--ic, #fff)}
+.tool h3{font-size:1.2rem}
+.tool p{font-size:.9rem; color:var(--gray); line-height:1.5}
+.tool .links{margin-top:auto; padding-top:6px; display:grid; gap:6px}
+.tool .links a{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:.88rem; color:var(--blue); text-decoration:none}
+.tool .links a:hover{text-decoration:underline}
+.tool .links .icon{width:1em; height:1em}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.5 5 4.6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/><path d="M19 3v4M17 5h4"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8M12 17.5v-11"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+  <symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1z"/><path d="M21 12h1M18.5 4.5 18 5M2 12h1M12 2v1M4.93 4.93l.71.71"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+</svg>
+
+<!-- Barra superior -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="info">
+      <span><svg class="icon"><use href="#i-pin"/></svg> Km 9,3 · Vereda Yerbabuena, Chía</span>
+      <a href="https://wa.link/hoishm" target="_blank" rel="noopener"><span><svg class="icon"><use href="#i-chat"/></svg> WhatsApp 304 274 9654</span></a>
+    </div>
+    <div class="soc">
+      <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+      <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Plataforma Master2000</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="brand" href="index.html">
+      <img src="img/escudo.png" alt="Escudo del Colegio San José de Calasanz">
+      <span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span>
+    </a>
+    <ul class="menu">
+      <li>
+        <button type="button" aria-haspopup="true">Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+          <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+          <li><a href="nuestro-colegio.html#pedagogia">Propuesta pedagógica</a></li>
+          <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+          <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+          <li><a href="nuestro-colegio.html#documentos">Manual, PEI y documentos</a></li>
+        </ul></div>
+      </li>
+      <li class="current">
+        <button type="button" aria-haspopup="true">Académico <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="#grados">Mi grado y plan de estudios</a></li>
+          <li><a href="#aprendemos">Cómo aprendemos</a></li>
+          <li><a href="#evaluacion">Sistema de evaluación</a></li>
+          <li><a href="#proyectos">Proyectos transversales</a></li>
+          <li><a href="#docentes">Directorio y atención a padres</a></li>
+          <li><a href="#recursos">Textos y plataformas</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="bienestar.html#psico">Psicoorientación</a></li>
+          <li><a href="bienestar.html#salud">Salud y póliza estudiantil</a></li>
+          <li><a href="bienestar.html#restaurante">Restaurante y loncheras</a></li>
+          <li><a href="bienestar.html#rutas">Rutas escolares</a></li>
+          <li><a href="bienestar.html#biblioteca">Biblioteca</a></li>
+          <li><a href="bienestar.html#extraescolares">Extraescolares</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+          <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+          <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+          <li><a href="comunicaciones.html#noticias">Noticias</a></li>
+          <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+          <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos (SQRR)</a></li>
+          <li><a href="index.html#siguenos">Redes sociales y videos</a></li>
+        </ul></div>
+      </li>
+      <li><a href="casa-olesa.html">Casa Olesa</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+    </ul>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo</a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </nav>
+</header>
+
+<!-- Menú móvil -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="top">
+      <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+      <button class="burger" type="button" data-close aria-label="Cerrar menú"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="solo" href="index.html">Inicio <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <details><summary>Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+      <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+      <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+      <li><a href="nuestro-colegio.html#campus">Campus</a></li>
+      <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+      <li><a href="nuestro-colegio.html#documentos">Documentos</a></li>
+    </ul></details>
+    <details open><summary>Académico <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="#grados">Mi grado y plan de estudios</a></li>
+      <li><a href="#aprendemos">Cómo aprendemos</a></li>
+      <li><a href="#evaluacion">Sistema de evaluación</a></li>
+      <li><a href="#proyectos">Proyectos transversales</a></li>
+      <li><a href="#docentes">Directorio y atención a padres</a></li>
+      <li><a href="#recursos">Textos y plataformas</a></li>
+    </ul></details>
+    <details><summary>Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="bienestar.html#psico">Psicoorientación</a></li>
+      <li><a href="bienestar.html#salud">Salud y póliza estudiantil</a></li>
+      <li><a href="bienestar.html#restaurante">Restaurante y loncheras</a></li>
+      <li><a href="bienestar.html#rutas">Rutas escolares</a></li>
+    </ul></details>
+    <details><summary>Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+      <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+      <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+      <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+      <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos</a></li>
+    </ul></details>
+    <a class="solo" href="admisiones.html">Admisiones 2027 <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="casa-olesa.html">Casa de Encuentros Olesa <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="galeria.html">Galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="#contacto">Contacto <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo 2027</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero page-hero">
+    <span class="sun" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><svg class="icon"><use href="#i-right"/></svg><span aria-current="page">Académico</span></nav>
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">Académico · calendario A</span>
+          <h1>Aprender <span class="pill">haciendo</span></h1>
+          <p class="hero-lead">De Pre-jardín a Once: mira las materias de tu grado, cómo se calcula tu nota, quién es tu director de grado y qué necesitas para empezar el año.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-yellow" href="#grados">Elige tu grado <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-line" href="#evaluacion">Simula tu nota</a>
+          </div>
+          <div class="hero-facts">
+            <div><b>35</b><span>clases a la semana</span></div>
+            <div><b>3</b><span>trimestres al año</span></div>
+            <div><b>A</b><span>Saber 11 · nivel Superior</span></div>
+          </div>
+        </div>
+        <aside class="daycard" aria-label="Así es un día de clase">
+          <span class="tape">Un día de clase</span>
+          <h2>Así es tu jornada</h2>
+          <ol>
+            <li><span class="t">7:30 a.m.</span><span><b>Cultivo de la interioridad</b><small>Cada día empieza con un momento de oración y reflexión.</small></span></li>
+            <li><span class="t">55 min</span><span><b>Bloques de clase</b><small>Lunes, martes, jueves y viernes.</small></span></li>
+            <li><span class="t">Miércoles</span><span><b>Clases de 40 minutos</b><small>La jornada termina a la 1:25 p.m.</small></span></li>
+            <li><span class="t">3:00 p.m.</span><span><b>Fin de la jornada</b><small>De lunes a viernes, salvo el miércoles.</small></span></li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-NAVEGACIÓN -->
+  <nav class="subnav" aria-label="Secciones de la página">
+    <div class="wrap">
+      <ul>
+        <li><a href="#grados"><span class="n">01</span>Mi grado</a></li>
+        <li><a href="#aprendemos"><span class="n">02</span>Cómo aprendemos</a></li>
+        <li><a href="#evaluacion"><span class="n">03</span>Evaluación</a></li>
+        <li><a href="#proyectos"><span class="n">04</span>Proyectos</a></li>
+        <li><a href="#docentes"><span class="n">05</span>Docentes</a></li>
+        <li><a href="#recursos"><span class="n">06</span>Textos y plataformas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MI GRADO -->
+  <section id="grados">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Plan de estudios</span>
+        <h2>Elige tu grado y mira tu <span class="mark">semana</span></h2>
+        <p>Las materias y horas de clase de cada grado, tu director de grado y la lista de útiles 2026.</p>
+      </div>
+      <div class="picker reveal" role="group" aria-label="Elige un grado">
+        <div class="pgroup"><small>Preescolar</small><div><button class="gchip" type="button" data-g="pj">Pre-jardín</button><button class="gchip" type="button" data-g="j">Jardín</button><button class="gchip" type="button" data-g="t">Transición</button></div></div>
+        <div class="pgroup"><small>Primaria</small><div><button class="gchip" type="button" data-g="1">1°</button><button class="gchip" type="button" data-g="2">2°</button><button class="gchip" type="button" data-g="3">3°</button><button class="gchip" type="button" data-g="4">4°</button><button class="gchip" type="button" data-g="5">5°</button></div></div>
+        <div class="pgroup"><small>Secundaria</small><div><button class="gchip" type="button" data-g="6">6°</button><button class="gchip" type="button" data-g="7">7°</button><button class="gchip" type="button" data-g="8">8°</button><button class="gchip" type="button" data-g="9">9°</button></div></div>
+        <div class="pgroup"><small>Media</small><div><button class="gchip" type="button" data-g="10">10°</button><button class="gchip" type="button" data-g="11">11°</button></div></div>
+      </div>
+      <div class="gpanel reveal" aria-live="polite">
+        <div class="week">
+          <div class="week-head"><h3 data-title>Grado 6°</h3><span class="lvl" data-level>Básica secundaria</span></div>
+          <p class="week-sub" data-sub>Horas de clase por semana</p>
+          <div class="legend" data-legend>
+            <span style="--c:var(--a-hum)"><i></i>Humanidades</span><span style="--c:var(--a-mat)"><i></i>Matemáticas</span><span style="--c:var(--a-cie)"><i></i>Ciencias</span><span style="--c:var(--a-soc)"><i></i>Sociales</span><span style="--c:var(--a-esp)"><i></i>Religión</span><span style="--c:var(--a-cue)"><i></i>Ed. física</span><span style="--c:var(--a-art)"><i></i>Artes</span><span style="--c:var(--a-tec)"><i></i>Tecnología</span>
+          </div>
+          <ul class="subjects" data-subjects></ul>
+          <p class="note">Plan de estudios publicado en el PEI 2025–2026.</p>
+        </div>
+        <div class="gside">
+          <div class="mentor">
+            <span class="kicker" data-mentor-title>Director de grado</span>
+            <ul data-mentors></ul>
+          </div>
+          <a class="listcard" data-list href="#" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-list"/></svg></span><span><b>Lista de útiles 2026</b><small data-list-name>Grado sexto · PDF</small></span><svg class="icon"><use href="#i-out"/></svg></a>
+          <div class="total"><b data-total>35</b><span data-total-label>clases a la semana, de 55 minutos (40 los miércoles)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO APRENDEMOS -->
+  <section id="aprendemos" class="bg-soft">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Cómo aprendemos</span>
+        <h2>Una escuela <span class="mark">activa</span></h2>
+        <p>Una escuela activa: tú construyes el conocimiento y tus profesores te acompañan.</p>
+      </div>
+      <div class="ways">
+        <article class="way reveal" style="--c:var(--purple)"><svg class="icon big"><use href="#i-sun"/></svg><span class="ico"><svg class="icon"><use href="#i-sun"/></svg></span><h3>Cultivo de la interioridad</h3><p>Cada mañana empieza con un tiempo de oración y reflexión antes de las clases.</p></article>
+        <article class="way reveal" style="--c:var(--blue)"><svg class="icon big"><use href="#i-book"/></svg><span class="ico"><svg class="icon"><use href="#i-book"/></svg></span><h3>Lectores competentes</h3><p>Programa con la Fundación Alberto Merani, de Preescolar a Once, para leer mejor y pensar con criterio.</p></article>
+        <article class="way reveal" style="--c:var(--yellow);--tc:var(--navy)"><svg class="icon big"><use href="#i-gear"/></svg><span class="ico"><svg class="icon"><use href="#i-gear"/></svg></span><h3>Proyectos maker y robótica</h3><p>Diseñar y fabricar objetos con herramientas digitales y manuales, y clases de informática y robótica.</p></article>
+        <article class="way reveal" style="--c:var(--green);--tc:var(--navy)"><svg class="icon big"><use href="#i-heart"/></svg><span class="ico"><svg class="icon"><use href="#i-heart"/></svg></span><h3>Aprendizaje-servicio</h3><p>Llevar lo aprendido fuera del colegio con acciones de voluntariado y compromiso social.</p></article>
+      </div>
+      <div class="methods reveal">
+        <span class="kicker">En clase</span>
+        <h3>Algunas formas de aprender que vas a vivir</h3>
+        <div class="cloud">
+          <span>Debates</span><span>Estudio de casos</span><span>Gamificación</span><span>Clase invertida</span><span>Storytelling</span><span>Enseñanza entre pares</span><span>Learning by doing</span><span>Investigación</span><span>Líneas de tiempo</span><span>Mapas e infografías</span><span>Preguntas que guían</span><span>Trabajo en equipo</span><span>Diarios de aprendizaje</span><span>Exposiciones</span>
+        </div>
+        <p>Tomadas de las 25 estrategias de la propuesta pedagógica del PEI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVALUACIÓN -->
+  <section id="evaluacion">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Sistema de evaluación · SIEEM 2026</span>
+        <h2>Tu nota, <span class="mark">sin misterios</span></h2>
+        <p>Cómo se calcula, cuándo te informan y qué pasa si algo no sale bien.</p>
+      </div>
+
+      <div class="eval-top">
+        <article class="ecard reveal">
+          <h3>¿Qué cuenta en tu nota del trimestre?</h3>
+          <div class="stack" aria-hidden="true">
+            <span style="flex:70;--c:var(--navy)">70%</span><span style="flex:20;--c:var(--yellow);--tc:var(--navy)">20%</span><span style="flex:5;--c:var(--teal)"></span><span style="flex:5;--c:var(--orange)"></span>
+          </div>
+          <ul class="stack-legend">
+            <li style="--c:var(--navy)"><i></i><span>Seguimiento del trimestre</span><b>70%</b><small>Lo que sabes, lo que haces y tu actitud en clase.</small></li>
+            <li style="--c:var(--yellow)"><i></i><span>Prueba trimestral</span><b>20%</b><small>Integra las competencias; siempre trae lectura y una pregunta para escribir.</small></li>
+            <li style="--c:var(--teal)"><i></i><span>Autoevaluación</span><b>5%</b></li>
+            <li style="--c:var(--orange)"><i></i><span>Heteroevaluación</span><b>5%</b></li>
+          </ul>
+        </article>
+        <article class="ecard reveal">
+          <h3>Escala de valoración</h3>
+          <ul class="scale">
+            <li class="c-superior"><b>4,6 – 5,0</b><span><strong>Superior</strong>Superas las metas del plan de área.</span></li>
+            <li class="c-alto"><b>4,0 – 4,5</b><span><strong>Alto</strong>Alcanzas las metas y piensas a un nivel exigente.</span></li>
+            <li class="c-basico"><b>3,5 – 3,9</b><span><strong>Básico</strong>Alcanzas lo mínimo; necesitas reforzar algunos procesos.</span></li>
+            <li class="c-bajo"><b>1,0 – 3,4</b><span><strong>Bajo</strong>Todavía no alcanzas lo esperado; hay plan de mejoramiento.</span></li>
+          </ul>
+          <p class="trunc"><b>Ojo:</b> la plataforma de notas corta en un decimal, no redondea. Un 3,49 queda en 3,4.</p>
+        </article>
+      </div>
+
+      <div class="sim reveal" data-sim>
+        <div>
+          <span class="kicker">Simulador</span>
+          <h3>¿Cuánto necesito en la prueba?</h3>
+          <p class="lead">Mueve las barras y mira tu nota del trimestre con los porcentajes del SIEEM.</p>
+          <div class="slider"><label for="s-seg">Seguimiento<small>70%</small></label><output for="s-seg" data-out="seg">3,8</output><input id="s-seg" type="range" min="1" max="5" step="0.1" value="3.8" data-w="0.7" data-k="seg"></div>
+          <div class="slider"><label for="s-pru">Prueba trimestral<small>20%</small></label><output for="s-pru" data-out="pru">3,5</output><input id="s-pru" type="range" min="1" max="5" step="0.1" value="3.5" data-w="0.2" data-k="pru"></div>
+          <div class="slider"><label for="s-aut">Autoevaluación<small>5%</small></label><output for="s-aut" data-out="aut">4,5</output><input id="s-aut" type="range" min="1" max="5" step="0.1" value="4.5" data-w="0.05" data-k="aut"></div>
+          <div class="slider"><label for="s-het">Heteroevaluación<small>5%</small></label><output for="s-het" data-out="het">4,2</output><input id="s-het" type="range" min="1" max="5" step="0.1" value="4.2" data-w="0.05" data-k="het"></div>
+        </div>
+        <div class="result" aria-live="polite">
+          <span class="lbl">Tu nota del trimestre</span>
+          <div class="grade" data-grade>3,8</div>
+          <span class="badge-d c-basico" data-badge>Básico</span>
+          <div class="meter" aria-hidden="true"><span class="c-bajo" style="flex:25"></span><span class="c-basico" style="flex:5"></span><span class="c-alto" style="flex:6"></span><span class="c-superior" style="flex:4"></span><i class="pin" data-pin></i></div>
+          <div class="meter-labels" aria-hidden="true"><span>1,0</span><span>3,5</span><span>5,0</span></div>
+          <p class="need" data-need></p>
+          <p class="fine">Es un estimado. Tu nota oficial está en Master2000.</p>
+        </div>
+      </div>
+
+      <div class="terms">
+        <div class="term reveal"><b>33%</b><div><h4>Primer trimestre</h4><p>Informe parcial en la semana 7 con las materias en bajo, para mejorar a tiempo.</p></div></div>
+        <div class="term reveal"><b>33%</b><div><h4>Segundo trimestre</h4><p>Al cierre recibes nota, desempeño y una descripción de cada materia.</p></div></div>
+        <div class="term reveal"><b>34%</b><div><h4>Tercer trimestre</h4><p>Con él se define, dentro del mismo año, si apruebas el grado.</p></div></div>
+      </div>
+
+      <div class="rules3">
+        <article class="rule reveal" style="--c:var(--green)">
+          <h3>Para pasar el año</h3>
+          <ul>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Asistir como mínimo al 80% de las clases.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Aprobar todas las áreas con desempeño básico, alto o superior.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Si faltaste con excusa, cumplir las actividades de nivelación.</span></li>
+          </ul>
+        </article>
+        <article class="rule reveal" style="--c:var(--blue)">
+          <h3>Para graduarte de bachiller</h3>
+          <ul>
+            <li><span class="num">120 h</span><span>de servicio social obligatorio certificadas.</span></li>
+            <li><span class="num">50 h</span><span>de estudios de Constitución Política.</span></li>
+            <li><span class="num">5° a 11°</span><span>con registro académico aprobatorio y todas las áreas aprobadas.</span></li>
+          </ul>
+        </article>
+        <article class="rule reveal" style="--c:var(--orange)">
+          <h3>Si algo no sale bien</h3>
+          <ul>
+            <li><span class="num">Periodo</span><span>Repasa y mejora durante el mismo trimestre.</span></li>
+            <li><span class="num">Regular</span><span>Al cerrar el trimestre, hasta 4 asignaturas en bajo, con taller previo y prueba escrita.</span></li>
+            <li><span class="num">Final</span><span>Si al terminar el año queda 1 área en bajo, hay una prueba extraordinaria. Con 2 o más, no se aprueba el grado.</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="chain reveal">
+        <h3>¿Tienes un reclamo sobre una nota?</h3>
+        <p>Sigue el conducto regular, empezando siempre por el diálogo con tu profesor:</p>
+        <ol><li>Docente de la materia</li><li>Jefe de área</li><li>Coordinación académica</li><li>Consejo académico</li><li>Rectoría</li><li>Consejo directivo</li></ol>
+      </div>
+
+      <div class="eval-cta reveal">
+        <a class="btn btn-navy" href="https://www.master2000.net/recursos/menu/338/4564/mper_arch_39121_SIEEM%20final%202026.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-file"/></svg> SIEEM 2026 completo (PDF)</a>
+        <a class="btn btn-white" href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Ver mis notas en Master2000 <svg class="icon"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="bg-cream">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Proyectos transversales</span>
+        <h2>Aprender también <span class="mark">fuera del tablero</span></h2>
+        <p>Proyectos que cruzan todas las materias y que cada año lidera un equipo de docentes.</p>
+      </div>
+      <div class="projects">
+        <article class="proj reveal" style="--c:var(--purple)"><span class="ico"><svg class="icon"><use href="#i-spark"/></svg></span><h3>Pastoral</h3><p>La vida de fe del colegio, en clave escolapia.</p></article>
+        <article class="proj reveal" style="--c:var(--orange);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-sun"/></svg></span><h3>Dragoncete</h3><p>Aprovechamiento del tiempo libre.</p></article>
+        <article class="proj reveal" style="--c:var(--green);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-leaf"/></svg></span><h3>Ambiente científico</h3><p>Proyecto ambiental escolar (PRAE).</p></article>
+        <article class="proj reveal" style="--c:var(--yellow);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-bulb"/></svg></span><h3>Soy Emprendedor</h3><p>Creatividad, innovación y emprendimiento.</p></article>
+        <article class="proj reveal" style="--c:var(--blue)"><span class="ico"><svg class="icon"><use href="#i-users"/></svg></span><h3>Valoremos la Diferencia</h3><p>Democracia, paz, diversidad cultural y etnoeducación.</p></article>
+        <article class="proj reveal" style="--c:#E5484D"><span class="ico"><svg class="icon"><use href="#i-heart"/></svg></span><h3>Autocuidado y afectividad</h3><p>Educación sexual y prevención del consumo de sustancias.</p></article>
+        <article class="proj reveal" style="--c:var(--teal);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-user"/></svg></span><h3>Necesidades educativas</h3><p>Apoyos y evaluación diferenciada para quien lo necesita.</p></article>
+        <article class="proj reveal" style="--c:var(--violet)"><span class="ico"><svg class="icon"><use href="#i-route"/></svg></span><h3>Educación vial</h3><p>Moverse con seguridad y respeto por la vía.</p></article>
+        <article class="proj reveal" style="--c:var(--navy);--ic:var(--yellow)"><span class="ico"><svg class="icon"><use href="#i-siren"/></svg></span><h3>Plan de emergencias</h3><p>Prevención y qué hacer ante una emergencia.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCENTES -->
+  <section id="docentes">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Directorio 2026</span>
+        <h2>¿A quién le <span class="mark">escribo</span>?</h2>
+        <p>Directivas y docentes con su correo institucional. La atención a padres es con cita previa.</p>
+      </div>
+      <div class="leaders">
+        <article class="leader reveal"><span class="avatar">AC</span><small>Rectora</small><b>Andrea Chaves</b><a class="mail" href="mailto:rectoria@sanjosedecalasanz.edu.co">rectoria@sanjosedecalasanz.edu.co</a><a class="btn btn-sm btn-yellow" href="https://calendar.app.google/4EN7rRCEcXmQEXtt5" target="_blank" rel="noopener"><svg class="icon"><use href="#i-cal"/></svg> Agendar cita</a></article>
+        <article class="leader reveal"><span class="avatar">ET</span><small>Coordinación académica y convivencia</small><b>Emilce Torres</b><a class="mail" href="mailto:emilcetorress@sanjosedecalasanz.edu.co">emilcetorress@sanjosedecalasanz.edu.co</a></article>
+        <article class="leader reveal"><span class="avatar">VA</span><small>Psicoorientación</small><b>Vanessa Acevedo</b><a class="mail" href="mailto:psicoorientacion@sanjosedecalasanz.edu.co">psicoorientacion@sanjosedecalasanz.edu.co</a><a class="btn btn-sm btn-yellow" href="https://calendar.app.google/SFxHuWDs3ufWTfXdA" target="_blank" rel="noopener"><svg class="icon"><use href="#i-cal"/></svg> Agendar cita</a></article>
+        <article class="leader reveal"><span class="avatar">DA</span><small>Secretaría académica</small><b>Diana Aristizábal</b><a class="mail" href="mailto:infosjcchia@sanjosedecalasanz.edu.co">infosjcchia@sanjosedecalasanz.edu.co</a></article>
+      </div>
+
+      <div class="finder reveal">
+        <h3>Docentes y directores de grado</h3>
+        <label class="search"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar docente</span><svg class="icon"><use href="#i-search"/></svg><input type="search" placeholder="Busca por nombre, grado o materia" data-find></label>
+      </div>
+      <div class="people reveal" data-people></div>
+      <p class="appt reveal"><svg class="icon"><use href="#i-cal"/></svg><span>Para hablar con un docente, pide la cita por correo o con tu director de grado. La administradora, M. Nancy Parrado, atiende en <a href="mailto:m.nancyparradod@sanjosedecalasanz.edu.co">m.nancyparradod@sanjosedecalasanz.edu.co</a>.</span></p>
+    </div>
+  </section>
+
+  <!-- TEXTOS Y PLATAFORMAS -->
+  <section id="recursos" class="bg-soft">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Textos y plataformas</span>
+        <h2>Todo lo que necesitas para <span class="mark">empezar</span></h2>
+      </div>
+      <div class="tools">
+        <article class="tool reveal" style="--c:var(--yellow);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-list"/></svg></span><h3>Listas de útiles 2026</h3><p>Textos, plan lector y útiles de cada grado.</p><div class="links"><a href="#grados">Elegir mi grado <svg class="icon"><use href="#i-arrow"/></svg></a></div></article>
+        <article class="tool reveal" style="--c:var(--blue)"><span class="ico"><svg class="icon"><use href="#i-book"/></svg></span><h3>Kit Santillana Compartir</h3><p>Libros y recursos digitales. El material se compra en línea y se entrega en el colegio.</p><div class="links"><a href="https://payment.santillanacompartir.com/co/comp/welcome" target="_blank" rel="noopener">Portal de pagos <svg class="icon"><use href="#i-out"/></svg></a><a href="https://www.master2000.net/recursos/menu/338/10121/mper_205373_1.%20Circular%20para%20Padres%20-%20Pasarela%20Domicilio%20Compartir.pdf" target="_blank" rel="noopener">Circular de compra <svg class="icon"><use href="#i-out"/></svg></a></div></article>
+        <article class="tool reveal" style="--c:var(--purple)"><span class="ico"><svg class="icon"><use href="#i-monitor"/></svg></span><h3>Master2000</h3><p>Notas, informes de periodo y boletín virtual.</p><div class="links"><a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Ingresar <svg class="icon"><use href="#i-out"/></svg></a><a href="https://modulo.master2000.net/recursos/uploads/338/MANUAL_BOLETINES_2020.pdf" target="_blank" rel="noopener">Cómo ver el boletín <svg class="icon"><use href="#i-out"/></svg></a></div></article>
+        <article class="tool reveal" style="--c:var(--green);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-file"/></svg></span><h3>Instructivo de textos</h3><p>Video paso a paso para la compra de textos con Libros &amp; Libros.</p><div class="links"><a href="https://youtu.be/zJFpqvVlPio" target="_blank" rel="noopener">Ver video <svg class="icon"><use href="#i-out"/></svg></a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section>
+    <div class="wrap">
+      <div class="admit reveal">
+        <span class="badge">✦ Piedad y letras</span>
+        <h2>¿Dudas académicas?</h2>
+        <p>Escríbele a coordinación académica o agenda una cita con rectoría.</p>
+        <div class="actions">
+          <a class="btn btn-yellow" href="mailto:emilcetorress@sanjosedecalasanz.edu.co"><svg class="icon"><use href="#i-mail"/></svg> Coordinación académica</a>
+          <a class="btn btn-orange" href="https://calendar.app.google/4EN7rRCEcXmQEXtt5" target="_blank" rel="noopener"><svg class="icon"><use href="#i-cal"/></svg> Agendar con rectoría</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+        <p class="about">Colegio escolapio en Chía, Cundinamarca. Piedad y letras de Pre-jardín a Once.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+          <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+          <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Académico</h4>
+        <ul>
+          <li><a href="#grados">Mi grado</a></li>
+          <li><a href="#evaluacion">Sistema de evaluación</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#docentes">Directorio docente</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nuestro-colegio.html">Nuestro colegio</a></li>
+          <li><a href="bienestar.html">Bienestar</a></li>
+          <li><a href="admisiones.html">Admisiones 2027</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="contact">
+          <li><svg class="icon"><use href="#i-pin"/></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio%20San%20Jos%C3%A9%20de%20Calasanz%20Ch%C3%ADa" target="_blank" rel="noopener">Km 9,3 Autopista Norte · Vereda Yerbabuena, Chía</a></li>
+          <li><svg class="icon"><use href="#i-chat"/></svg><a href="https://wa.link/hoishm" target="_blank" rel="noopener">WhatsApp 304 274 9654</a></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+573152063987">Celular 315 206 3987</a></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:infosjcchia@sanjosedecalasanz.edu.co">infosjcchia@sanjosedecalasanz.edu.co</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span class="proto-note"><!-- PROTOTIPO: borrar al publicar como sitio oficial -->Prototipo conceptual de rediseño · No es el sitio oficial del colegio.</span>
+      <span>Información tomada del PEI 2025–2026, el SIEEM 2026, el directorio docente 2026 y las listas escolares 2026.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.link/hoishm" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+
+<script src="app.js?v=13"></script>
+<script>
+(function () {
+  var DOM = '@sanjosedecalasanz.edu.co';
+
+  // ---- Plan de estudios (PEI 2025–2026): [materia, horas por semana, área] ----
+  var PRIMARIA = [['Lengua castellana', 4, 'hum'], ['Inglés', 4, 'hum'], ['Matemáticas', 4, 'mat'], ['Geometría y estadística', 2, 'mat'], ['Ciencias naturales', 3, 'cie'], ['Investigación y lectores', 2, 'cie'], ['Ciencias sociales', 3, 'soc'], ['Ética, convivencia y paz', 1, 'soc'], ['Educación religiosa', 2, 'esp'], ['Infancia misionera', 1, 'esp'], ['Educación física', 2, 'cue'], ['Danzas', 2, 'art'], ['Música', 2, 'art'], ['Artes', 1, 'art'], ['Tecnología e informática', 2, 'tec']];
+  var SECUNDARIA = [['Lengua castellana', 4, 'hum'], ['Inglés', 5, 'hum'], ['Matemáticas', 4, 'mat'], ['Geometría y estadística', 2, 'mat'], ['Ciencias naturales', 3, 'cie'], ['Química y física', 1, 'cie'], ['Investigación y lectores', 2, 'cie'], ['Ciencias sociales', 3, 'soc'], ['Geografía', 1, 'soc'], ['Filosofía y ética', 1, 'soc'], ['Educación religiosa', 2, 'esp'], ['Educación física', 2, 'cue'], ['Danzas', 1, 'art'], ['Dibujo artístico', 1, 'art'], ['Música', 2, 'art'], ['Tecnología e informática', 1, 'tec']];
+  var NOVENO = [['Lengua castellana', 4, 'hum'], ['Inglés', 5, 'hum'], ['Matemáticas', 4, 'mat'], ['Geometría y estadística', 1, 'mat'], ['Ciencias naturales', 3, 'cie'], ['Química', 1, 'cie'], ['Física', 1, 'cie'], ['Investigación y lectores', 2, 'cie'], ['Ciencias sociales', 3, 'soc'], ['Filosofía y ética', 1, 'soc'], ['Educación religiosa', 2, 'esp'], ['Educación física', 2, 'cue'], ['Danzas', 1, 'art'], ['Dibujo artístico', 1, 'art'], ['Música', 2, 'art'], ['Tecnología e informática', 2, 'tec']];
+  var DECIMO = [['Lengua castellana', 4, 'hum'], ['Inglés', 5, 'hum'], ['Trigonometría', 4, 'mat'], ['Química', 4, 'cie'], ['Física', 4, 'cie'], ['Investigación y lectores', 2, 'cie'], ['Ciencias sociales', 1, 'soc'], ['Ciencias políticas', 2, 'soc'], ['Filosofía y ética', 2, 'soc'], ['Educación religiosa', 2, 'esp'], ['Educación física', 2, 'cue'], ['Danzas', 1, 'art'], ['Música', 1, 'art'], ['Tecnología e informática', 1, 'tec']];
+  var ONCE = [['Lengua castellana', 4, 'hum'], ['Inglés', 5, 'hum'], ['Cálculo', 4, 'mat'], ['Probabilidad', 1, 'mat'], ['Química', 4, 'cie'], ['Física', 4, 'cie'], ['Investigación y lectores', 2, 'cie'], ['Ciencias sociales', 1, 'soc'], ['Ciencias políticas', 2, 'soc'], ['Filosofía y ética', 2, 'soc'], ['Educación religiosa', 2, 'esp'], ['Educación física', 2, 'cue'], ['Danzas', 1, 'art'], ['Tecnología e informática', 1, 'tec']];
+  // Preescolar: dimensiones del desarrollo
+  var PREESCOLAR = [['Comunicativa', 12, 'hum', 'Lectoescritura, ciencias, informática e inglés'], ['Cognitiva', 10, 'mat', 'Matemáticas, sociales e investigación'], ['Corporal', 9, 'cue', 'Educación física, danzas, música y artística'], ['Estética y espiritual', 4, 'esp', 'Ética, religión e infancia misionera']];
+
+  var MARCELA = [['Marcela Romero', 'marcelaromeros', 'Preescolar']];
+  var GRADES = {
+    pj: { name: 'Pre-jardín', level: 'Preescolar', plan: PREESCOLAR, list: '184969_Listas%20escolares%202026%20prejardin.pdf', mentors: MARCELA },
+    j:  { name: 'Jardín', level: 'Preescolar', plan: PREESCOLAR, list: '184970_Listas%20escolares%202026%20jardin.pdf', mentors: MARCELA },
+    t:  { name: 'Transición', level: 'Preescolar', plan: PREESCOLAR, list: '184971_Listas%20escolares%202026%20transicion.pdf', mentors: MARCELA },
+    1:  { name: '1°', word: 'primero', level: 'Básica primaria', plan: PRIMARIA, list: '184972_Listas%20escolares%202026%20primero.pdf', mentors: [['Maira Delgado', 'mairadelgadog']] },
+    2:  { name: '2°', word: 'segundo', level: 'Básica primaria', plan: PRIMARIA, list: '184973_Listas%20escolares%202026%20segundo.pdf', mentors: [['Liliana Arévalo', 'lilianaarevalog']] },
+    3:  { name: '3°', word: 'tercero', level: 'Básica primaria', plan: PRIMARIA, list: '184974_Listas%20escolares%202026%20tercero.pdf', mentors: [['Sandra Franco', 'sandrafrancob']] },
+    4:  { name: '4°', word: 'cuarto', level: 'Básica primaria', plan: PRIMARIA, list: '184975_Listas%20escolares%202026%20cuarto.pdf', mentors: [['Jadranka Noworyta', 'jadrankanoworytaq']] },
+    5:  { name: '5°', word: 'quinto', level: 'Básica primaria', plan: PRIMARIA, list: '184976_Listas%20escolares%202026%20quinto.pdf', mentors: [['Diego Martínez', 'diegomartinezs']] },
+    6:  { name: '6°', word: 'sexto', level: 'Básica secundaria', plan: SECUNDARIA, list: '184977_Listas%20escolares%202026%20sexto.pdf', mentors: [['César León', 'cesarleonl']] },
+    7:  { name: '7°', word: 'séptimo', level: 'Básica secundaria', plan: SECUNDARIA, list: '184978_Listas%20escolares%202026%20septimo.pdf', mentors: [['Jonathan García', 'fabriciogarciad']] },
+    8:  { name: '8°', word: 'octavo', level: 'Básica secundaria', plan: SECUNDARIA, list: '184979_Listas%20escolares%202026%20octavo.pdf', mentors: [['Sharon Fajardo', 'sharonfajardog', '8° A'], ['Elkin Martínez', 'elkinmartinezr', '8° B']] },
+    9:  { name: '9°', word: 'noveno', level: 'Básica secundaria', plan: NOVENO, list: '184980_Listas%20escolares%202026%20noveno.pdf', mentors: [['Yaneth Cubides', 'nydiacubidesr', '9° A'], ['Sebastián Martínez', 'angelmartinezm', '9° B']] },
+    10: { name: '10°', word: 'décimo', level: 'Media académica', plan: DECIMO, list: '184981_Listas%20escolares%202026%20decimo.pdf', mentors: [['Angélica Medina', 'angelicamedinab']] },
+    11: { name: '11°', word: 'once', level: 'Media académica', plan: ONCE, list: '184982_Listas%20escolares%202026%20undecimo.pdf', mentors: [['Deisy Roncancio', 'deisyroncanciol']] }
+  };
+  var LIST_BASE = 'https://www.master2000.net/recursos/menu/338/11080/mper_arch_';
+
+  function initials(n) { return n.split(' ').map(function (w) { return w[0]; }).slice(0, 2).join(''); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  var panel = document.querySelector('.gpanel');
+  var q = function (s) { return panel.querySelector(s); };
+  var chips = document.querySelectorAll('.gchip');
+
+  function showGrade(key) {
+    var g = GRADES[key];
+    var pre = g.level === 'Preescolar';
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.getAttribute('data-g') === String(key))); });
+    q('[data-title]').textContent = pre ? g.name : 'Grado ' + g.name;
+    q('[data-level]').textContent = g.level;
+    q('[data-sub]').textContent = pre ? 'Horas por semana en cada dimensión del desarrollo' : 'Horas de clase por semana en cada materia';
+    q('[data-legend]').hidden = pre;
+    var ul = q('[data-subjects]');
+    ul.textContent = '';
+    var total = 0;
+    g.plan.forEach(function (s) {
+      total += s[1];
+      var li = el('li');
+      li.style.setProperty('--c', 'var(--a-' + s[2] + ')');
+      li.appendChild(el('span', 'nm', s[0]));
+      li.appendChild(el('span', 'h', s[1]));
+      var bar = el('span', 'bar'), fill = el('i');
+      bar.appendChild(fill); li.appendChild(bar);
+      if (s[3]) li.appendChild(el('span', 'dims', s[3]));
+      ul.appendChild(li);
+      requestAnimationFrame(function () { fill.style.width = (s[1] / (pre ? 12 : 5) * 100) + '%'; });
+    });
+    q('[data-total]').textContent = total;
+    q('[data-total-label]').textContent = pre ? 'horas a la semana entre las cuatro dimensiones' : 'clases a la semana, de 55 minutos (40 los miércoles)';
+    var mentors = q('[data-mentors]');
+    mentors.textContent = '';
+    q('[data-mentor-title]').textContent = g.mentors.length > 1 ? 'Dirección de grado' : (pre ? 'Dirección de Preescolar' : 'Dirección de grado');
+    g.mentors.forEach(function (m) {
+      var li = el('li');
+      li.appendChild(el('span', 'avatar', initials(m[0])));
+      var box = el('span');
+      box.appendChild(el('b', null, m[0] + (m[2] && m[2] !== 'Preescolar' ? ' · ' + m[2] : '')));
+      var a = el('a', null, m[1] + DOM);
+      a.href = 'mailto:' + m[1] + DOM;
+      box.appendChild(a); li.appendChild(box); mentors.appendChild(li);
+    });
+    var list = q('[data-list]');
+    list.href = LIST_BASE + g.list;
+    q('[data-list-name]').textContent = (pre ? g.name : 'Grado ' + (g.word || g.name)) + ' · PDF';
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { showGrade(c.getAttribute('data-g')); }); });
+  showGrade('6');
+
+  // ---- Simulador de nota del trimestre (SIEEM: 70 / 20 / 5 / 5, se trunca a un decimal) ----
+  var sim = document.querySelector('[data-sim]');
+  var inputs = sim.querySelectorAll('input[type="range"]');
+  var fmt = function (n) { return n.toFixed(1).replace('.', ','); };
+  var trunc = function (n) { return Math.floor(n * 10 + 1e-9) / 10; };
+  var LEVELS = [[4.6, 'Superior', 'c-superior'], [4.0, 'Alto', 'c-alto'], [3.5, 'Básico', 'c-basico'], [1.0, 'Bajo', 'c-bajo']];
+  function calc() {
+    var v = {}, raw = 0;
+    inputs.forEach(function (i) {
+      v[i.getAttribute('data-k')] = parseFloat(i.value);
+      raw += parseFloat(i.value) * parseFloat(i.getAttribute('data-w'));
+      sim.querySelector('[data-out="' + i.getAttribute('data-k') + '"]').textContent = fmt(parseFloat(i.value));
+    });
+    var nota = trunc(raw);
+    var lvl = LEVELS.filter(function (l) { return nota >= l[0]; })[0];
+    sim.querySelector('[data-grade]').textContent = fmt(nota);
+    var badge = sim.querySelector('[data-badge]');
+    badge.textContent = lvl[1];
+    badge.className = 'badge-d ' + lvl[2];
+    sim.querySelector('[data-pin]').style.left = ((nota - 1) / 4 * 100) + '%';
+    // Prueba mínima para llegar a 3,5 con lo demás fijo
+    var rest = v.seg * 0.7 + v.aut * 0.05 + v.het * 0.05;
+    var need = Math.ceil(((3.5 - rest) / 0.2) * 10 - 1e-9) / 10;
+    var msg;
+    if (need <= 1) msg = 'Con este seguimiento ya tienes asegurado el básico, saques lo que saques en la prueba.';
+    else if (need > 5) msg = 'Solo con la prueba no alcanzas el básico. Habla con tu profesor sobre el mejoramiento de periodo.';
+    else msg = 'Para llegar a básico (3,5) necesitas al menos ' + fmt(need) + ' en la prueba trimestral.';
+    sim.querySelector('[data-need]').textContent = msg;
+  }
+  inputs.forEach(function (i) { i.addEventListener('input', calc); });
+  calc();
+
+  // ---- Directorio docente 2026 ----
+  var PEOPLE = [
+    ['Marcela Romero', 'Dirección de Preescolar', 'marcelaromeros'],
+    ['Maira Delgado', 'Dirección de grado 1°', 'mairadelgadog'],
+    ['Liliana Arévalo', 'Dirección de grado 2°', 'lilianaarevalog'],
+    ['Sandra Franco', 'Dirección de grado 3° · Rutas escolares', 'sandrafrancob'],
+    ['Jadranka Noworyta', 'Dirección de grado 4°', 'jadrankanoworytaq'],
+    ['Diego Martínez', 'Dirección de grado 5°', 'diegomartinezs'],
+    ['César León', 'Dirección de grado 6°', 'cesarleonl'],
+    ['Jonathan García', 'Dirección de grado 7°', 'fabriciogarciad'],
+    ['Sharon Fajardo', 'Dirección de grado 8° A', 'sharonfajardog'],
+    ['Elkin Martínez', 'Dirección de grado 8° B', 'elkinmartinezr'],
+    ['Yaneth Cubides', 'Dirección de grado 9° A', 'nydiacubidesr'],
+    ['Sebastián Martínez', 'Dirección de grado 9° B', 'angelmartinezm'],
+    ['Angélica Medina', 'Dirección de grado 10°', 'angelicamedinab'],
+    ['Deisy Roncancio', 'Dirección de grado 11° · Inglés', 'deisyroncanciol'],
+    ['Mitchel Calderón', 'Matemáticas y física', 'mitchelcalderonc'],
+    ['David Garzón', 'Informática y robótica', 'davidgarzonb'],
+    ['Elizabeth Arévalo', 'Danzas y artes', 'elizabetharevalos']
+  ];
+  var COLORS = ['var(--yellow)', 'var(--teal)', 'var(--green)', 'var(--orange)'];
+  var people = document.querySelector('[data-people]');
+  var norm = function (s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); };
+  PEOPLE.forEach(function (p, i) {
+    var card = el('article', 'person');
+    card.style.setProperty('--c', COLORS[i % COLORS.length]);
+    card.setAttribute('data-text', norm(p.join(' ')));
+    card.appendChild(el('span', 'avatar', initials(p[0])));
+    var box = el('span');
+    box.appendChild(el('b', null, p[0]));
+    box.appendChild(el('small', null, p[1]));
+    var a = el('a', null, p[2] + DOM);
+    a.href = 'mailto:' + p[2] + DOM;
+    box.appendChild(a); card.appendChild(box); people.appendChild(card);
+  });
+  var empty = el('p', 'empty', 'No encontramos a nadie con esa búsqueda.');
+  empty.hidden = true; people.appendChild(empty);
+  document.querySelector('[data-find]').addEventListener('input', function (e) {
+    var term = norm(e.target.value.trim()), shown = 0;
+    people.querySelectorAll('.person').forEach(function (c) {
+      var hit = !term || c.getAttribute('data-text').indexOf(term) !== -1;
+      c.hidden = !hit; if (hit) shown++;
+    });
+    empty.hidden = shown > 0;
+  });
+})();
+</script>
+</body>
+</html>

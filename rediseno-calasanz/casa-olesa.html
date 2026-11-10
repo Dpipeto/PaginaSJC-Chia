@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa de Encuentros Olesa — Calasanz Chía</title>
+<meta name="robots" content="noindex, nofollow"> <!-- PROTOTIPO: borrar al publicar como sitio oficial -->
+<meta name="description" content="Prototipo conceptual: Casa de Encuentros Olesa, junto al Colegio San José de Calasanz (Chía). No es el sitio oficial.">
+<link rel="icon" href="img/escudo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="estilos.css?v=13">
+<style>
+.olesa-feats{list-style:none; margin:18px 0 22px; padding:0; display:flex; flex-wrap:wrap; gap:8px}
+.olesa-feats li{display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; background:var(--cream); color:var(--navy); font-weight:700; font-size:.88rem}
+.olesa-feats .icon{color:var(--orange)}
+.gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+@media (min-width:640px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.gallery button{position:relative; padding:0; border:0; border-radius:18px; overflow:hidden; cursor:zoom-in; aspect-ratio:3/4; background:var(--soft)}
+.gallery button.wide{grid-column:span 2; aspect-ratio:auto; min-height:180px}
+.gallery img{width:100%; height:100%; object-fit:cover; transition:transform .5s}
+.gallery button:hover img{transform:scale(1.06)}
+.gallery span{position:absolute; left:8px; bottom:8px; right:8px; width:fit-content; font-size:.72rem; font-weight:700; padding:5px 10px; border-radius:999px; background:rgba(255,255,255,.92); color:var(--navy); text-align:left}
+
+/* Hero propio: sin barra de accesos debajo */
+.olesa-hero{min-height:clamp(560px, 84vh, 780px)}
+.olesa-hero .slide-content{padding-bottom:120px}
+.olesa-hero .slider-ui{bottom:36px}
+.olesa-hero .crumbs{margin-bottom:22px}
+
+/* La casa */
+.house{display:grid; gap:40px; align-items:center}
+@media (min-width:960px){.house{grid-template-columns:1.05fr .95fr; gap:56px}}
+.house .head{margin-bottom:12px}
+.why-olesa{margin-top:6px; padding:22px; border-radius:var(--radius); background:var(--cream); border:1px solid #F3E2A6}
+.why-olesa b{display:block; margin-bottom:6px; font-family:var(--display); font-size:1.2rem; color:var(--navy)}
+.house-photo{position:relative; margin:0 auto; max-width:480px; width:100%}
+.house-photo img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:32px; box-shadow:var(--shadow)}
+.house-badge{position:absolute; left:-10px; bottom:24px; max-width:230px; padding:16px 20px; border-radius:20px; background:var(--yellow); color:var(--navy); box-shadow:var(--shadow)}
+@media (min-width:560px){.house-badge{left:-24px}}
+.house-badge b{display:block; font:800 2rem/1 var(--display)}
+.house-badge span{display:block; margin-top:4px; font-size:.85rem; font-weight:600; line-height:1.3}
+
+/* Espacios */
+.spaces-grid{display:grid; gap:16px}
+@media (min-width:640px){.spaces-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.spaces-grid{grid-template-columns:repeat(4,1fr)}}
+.space{display:flex; flex-direction:column; overflow:hidden; border-radius:var(--radius); background:#fff; border:1px solid var(--line); transition:transform .25s, box-shadow .25s}
+.space:hover{transform:translateY(-5px); box-shadow:var(--shadow)}
+.space img{width:100%; aspect-ratio:4/3; object-fit:cover}
+.space div{padding:18px 20px 22px}
+.space h3{font-size:1.2rem; margin-bottom:6px}
+.space p{font-size:.92rem; color:var(--gray); line-height:1.5}
+
+/* Madre Paula y Olesa */
+.paula-line{list-style:none; margin:0; padding:0; display:grid; gap:14px}
+@media (min-width:640px){.paula-line{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.paula-line{grid-template-columns:repeat(4,1fr)}}
+.paula-line li{padding:22px; border-radius:var(--radius); background:#fff; border:1px solid #F3E2A6; border-top:6px solid var(--c)}
+.paula-line b{display:block; font:800 2rem/1 var(--display); color:var(--navy)}
+.paula-line small{display:block; margin:6px 0 8px; font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--gray)}
+.paula-line p{font-size:.92rem; line-height:1.5; color:var(--ink)}
+.paula-cta{display:flex; justify-content:center; margin-top:24px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/><path d="M19 3v4M17 5h4"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8M12 17.5v-11"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.5 5 4.6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+</svg>
+
+<!-- Barra superior -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="info">
+      <span><svg class="icon"><use href="#i-pin"/></svg> Km 9,3 · Vereda Yerbabuena, Chía</span>
+      <a href="https://wa.link/hoishm" target="_blank" rel="noopener"><span><svg class="icon"><use href="#i-chat"/></svg> WhatsApp 304 274 9654</span></a>
+    </div>
+    <div class="soc">
+      <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+      <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Plataforma Master2000</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="brand" href="index.html#inicio">
+      <img src="img/escudo.png" alt="Escudo del Colegio San José de Calasanz">
+      <span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span>
+    </a>
+    <ul class="menu">
+      <li>
+        <button type="button" aria-haspopup="true">Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+          <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+          <li><a href="nuestro-colegio.html#pedagogia">Propuesta pedagógica</a></li>
+          <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+          <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+          <li><a href="nuestro-colegio.html#documentos">Manual, PEI y documentos</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Académico <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="academico.html#grados">Mi grado y plan de estudios</a></li>
+          <li><a href="academico.html#aprendemos">Cómo aprendemos</a></li>
+          <li><a href="academico.html#evaluacion">Sistema de evaluación</a></li>
+          <li><a href="academico.html#proyectos">Proyectos transversales</a></li>
+          <li><a href="academico.html#docentes">Directorio y atención a padres</a></li>
+          <li><a href="academico.html#recursos">Textos y plataformas</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="bienestar.html#psico">Psicoorientación</a></li>
+          <li><a href="bienestar.html#salud">Salud y póliza estudiantil</a></li>
+          <li><a href="bienestar.html#restaurante">Restaurante y loncheras</a></li>
+          <li><a href="bienestar.html#rutas">Rutas escolares</a></li>
+          <li><a href="bienestar.html#biblioteca">Biblioteca</a></li>
+          <li><a href="bienestar.html#extraescolares">Extraescolares</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+          <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+          <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+          <li><a href="comunicaciones.html#noticias">Noticias</a></li>
+          <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+          <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos (SQRR)</a></li>
+          <li><a href="index.html#siguenos">Redes sociales y videos</a></li>
+        </ul></div>
+      </li>
+      <li class="current"><a href="casa-olesa.html" aria-current="page">Casa Olesa</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+    </ul>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo</a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </nav>
+</header>
+
+<!-- Menú móvil -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="top">
+      <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+      <button class="burger" type="button" data-close aria-label="Cerrar menú"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <details><summary>Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+      <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+      <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+      <li><a href="nuestro-colegio.html#campus">Campus</a></li>
+      <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+      <li><a href="nuestro-colegio.html#documentos">Documentos</a></li>
+    </ul></details>
+    <details><summary>Académico <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="academico.html#grados">Mi grado y plan de estudios</a></li>
+      <li><a href="academico.html#evaluacion">Sistema de evaluación</a></li>
+      <li><a href="academico.html#docentes">Directorio y atención a padres</a></li>
+      <li><a href="academico.html#recursos">Textos y plataformas</a></li>
+    </ul></details>
+    <details><summary>Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="bienestar.html#psico">Psicoorientación</a></li>
+      <li><a href="bienestar.html#salud">Salud y póliza estudiantil</a></li>
+      <li><a href="bienestar.html#restaurante">Restaurante y loncheras</a></li>
+      <li><a href="bienestar.html#rutas">Rutas escolares</a></li>
+    </ul></details>
+    <details><summary>Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+      <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+      <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+      <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+      <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos</a></li>
+    </ul></details>
+    <a class="solo" href="casa-olesa.html">Casa de Encuentros Olesa <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="galeria.html">Galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="#contacto">Contacto <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo 2027</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO: carrusel con fondos en movimiento -->
+  <section class="hero hero-slider olesa-hero" data-slider aria-roledescription="carrusel" aria-label="Fotos de la Casa de Encuentros Olesa">
+    <article class="slide active" aria-roledescription="diapositiva" aria-label="1 de 3">
+      <div class="slide-bg" style="background-image:url('img/olesa/olesa-entrada.jpg'); background-position:50% 35%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><svg class="icon"><use href="#i-right"/></svg><span aria-current="page">Casa Olesa</span></nav>
+        <span class="kicker">Junto al colegio</span>
+        <h1>Casa de Encuentros <span class="pill">Olesa</span></h1>
+        <p class="hero-lead">Patios blancos, tejas de barro y jardines llenos de flores: un lugar para detenerse, orar y compartir.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="#galeria">Ver la casa <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="https://wa.link/hoishm" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> Pregunta por la casa</a>
+        </div>
+      </div>
+      <span class="slide-tag">La entrada</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="2 de 3">
+      <div class="slide-bg" style="background-image:url('img/olesa/olesa-patio.jpg'); background-position:50% 50%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Patios y jardines</span>
+        <h2 class="slide-title">Arcos, flores y <span class="pill">silencio</span></h2>
+        <p class="hero-lead">Rincones al aire libre para hacer una pausa en medio del día.</p>
+        <div class="hero-ctas"><a class="btn btn-yellow" href="#espacios">Conoce los espacios <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <span class="slide-tag">Vista desde el arco</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="3 de 3">
+      <div class="slide-bg" style="background-image:url('img/olesa/olesa-comedor.jpg'); background-position:50% 60%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Para compartir</span>
+        <h2 class="slide-title">Espacios para estar <span class="pill">juntos</span></h2>
+        <p class="hero-lead">Un comedor amplio y luminoso para encuentros de grupo.</p>
+        <div class="hero-ctas"><a class="btn btn-yellow" href="#galeria">Ver todas las fotos <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+      </div>
+      <span class="slide-tag">El comedor</span>
+    </article>
+    <div class="wrap slider-ui">
+      <div class="dots" role="group" aria-label="Elegir foto">
+        <button type="button" data-dot aria-label="Ver foto 1" aria-current="true"></button>
+        <button type="button" data-dot aria-label="Ver foto 2"></button>
+        <button type="button" data-dot aria-label="Ver foto 3"></button>
+      </div>
+      <div class="arrows-s">
+        <button type="button" data-toggle aria-pressed="false" aria-label="Pausar el carrusel"><svg class="icon i-pause"><use href="#i-pause"/></svg><svg class="icon i-play"><use href="#i-play"/></svg></button>
+        <button type="button" data-prev aria-label="Foto anterior"><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button type="button" data-next aria-label="Foto siguiente"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-NAVEGACIÓN -->
+  <nav class="subnav" aria-label="Secciones de la página">
+    <div class="wrap">
+      <ul>
+        <li><a href="#la-casa"><span class="n">01</span>La casa</a></li>
+        <li><a href="#espacios"><span class="n">02</span>Espacios</a></li>
+        <li><a href="#galeria"><span class="n">03</span>Galería</a></li>
+        <li><a href="#madre-paula"><span class="n">04</span>Madre Paula</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- LA CASA -->
+  <section id="la-casa">
+    <div class="wrap house">
+      <div>
+        <div class="head reveal">
+          <span class="kicker">La casa</span>
+          <h2>Un rincón para <span class="mark">encontrarnos</span></h2>
+          <p>Al lado del colegio, la Casa de Encuentros Olesa reúne patios con arcos, jardines florecidos y salones luminosos, en medio del verde de la vereda Yerbabuena.</p>
+        </div>
+        <ul class="olesa-feats reveal">
+          <li><svg class="icon"><use href="#i-spark"/></svg>Patios con arcos</li>
+          <li><svg class="icon"><use href="#i-heart"/></svg>Jardín del Sagrado Corazón</li>
+          <li><svg class="icon"><use href="#i-users"/></svg>Comedor amplio</li>
+          <li><svg class="icon"><use href="#i-home"/></svg>Casa de dos plantas</li>
+          <li><svg class="icon"><use href="#i-leaf"/></svg>Zonas verdes</li>
+        </ul>
+        <div class="why-olesa reveal">
+          <b>¿Por qué «Olesa»?</b>
+          <p>El nombre evoca Olesa de Montserrat, el pueblo de Cataluña donde Madre Paula Montal vivió desde 1859 hasta su muerte, en 1889.</p>
+        </div>
+      </div>
+      <figure class="house-photo reveal">
+        <img loading="lazy" src="img/olesa/olesa-casa.jpg" alt="Casa blanca de dos plantas con ventanas en arco y matas en el muro">
+        <figcaption class="house-badge"><b>1859</b><span>Madre Paula llega a Olesa de Montserrat</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ESPACIOS -->
+  <section id="espacios" class="bg-soft">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Espacios</span>
+        <h2>Cada rincón tiene su <span class="mark">encanto</span></h2>
+      </div>
+      <div class="spaces-grid">
+        <article class="space reveal"><img loading="lazy" src="img/olesa/olesa-jardin.jpg" alt="Jardín con la imagen del Sagrado Corazón, rodeado de flores rojas"><div><h3>Jardín del Sagrado Corazón</h3><p>Rosas y geranios rojos alrededor de la imagen del Sagrado Corazón.</p></div></article>
+        <article class="space reveal"><img loading="lazy" src="img/olesa/olesa-arcos.jpg" alt="Patio empedrado con dos arcos blancos y tejas de barro"><div><h3>Patio de los arcos</h3><p>Piso de piedra, arcos blancos y tejas de barro, con matas florecidas.</p></div></article>
+        <article class="space reveal"><img loading="lazy" src="img/olesa/olesa-comedor.jpg" alt="Comedor con techo de vigas de madera, lámpara de hierro y ventanales en arco"><div><h3>Comedor</h3><p>Techo alto de vigas de madera, lámpara de hierro y ventanales en arco hacia el jardín.</p></div></article>
+        <article class="space reveal"><img loading="lazy" src="img/olesa/olesa-escalera.jpg" alt="Escalera de madera junto a un muro de bloques de vidrio y una fuente interior"><div><h3>Escalera y fuente</h3><p>Una escalera de madera junto a un muro de bloques de vidrio y una pequeña fuente.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Galería</span>
+        <h2>Recorre la casa en <span class="mark">fotos</span></h2>
+        <p>Toca una foto para verla en grande.</p>
+      </div>
+      <div class="gallery reveal" data-gallery>
+        <button type="button" class="wide" data-full="img/olesa/olesa-jardin.jpg"><img loading="lazy" src="img/olesa/olesa-jardin.jpg" alt="Jardín con la imagen del Sagrado Corazón, rodeado de flores rojas"><span>Jardín del Sagrado Corazón</span></button>
+        <button type="button" data-full="img/olesa/olesa-arcos.jpg"><img loading="lazy" src="img/olesa/olesa-arcos.jpg" alt="Patio empedrado con dos arcos blancos y tejas de barro"><span>Patio de los arcos</span></button>
+        <button type="button" data-full="img/olesa/olesa-casa.jpg"><img loading="lazy" src="img/olesa/olesa-casa.jpg" alt="Casa blanca de dos plantas con ventanas en arco y matas en el muro"><span>La casa</span></button>
+        <button type="button" data-full="img/olesa/olesa-patio.jpg"><img loading="lazy" src="img/olesa/olesa-patio.jpg" alt="Vista del patio interior a través de un arco, con flores y una imagen religiosa"><span>Vista desde el arco</span></button>
+        <button type="button" data-full="img/olesa/olesa-comedor.jpg"><img loading="lazy" src="img/olesa/olesa-comedor.jpg" alt="Comedor con techo de vigas de madera, lámpara de hierro y ventanales en arco"><span>El comedor</span></button>
+        <button type="button" data-full="img/olesa/olesa-escalera.jpg"><img loading="lazy" src="img/olesa/olesa-escalera.jpg" alt="Escalera de madera junto a un muro de bloques de vidrio y una fuente interior"><span>Escalera y fuente</span></button>
+        <button type="button" data-full="img/olesa/olesa-entrada.jpg"><img loading="lazy" src="img/olesa/olesa-entrada.jpg" alt="Arco de entrada con el letrero Casa de Encuentros Olesa y un camino de piedra"><span>La entrada</span></button>
+      </div>
+    </div>
+    <dialog class="lightbox" data-lightbox aria-label="Foto ampliada">
+      <figure><img alt=""><figcaption></figcaption></figure>
+      <button type="button" class="lb-btn lb-close" data-lb-close aria-label="Cerrar"><svg class="icon"><use href="#i-x"/></svg></button>
+      <button type="button" class="lb-btn lb-prev" data-lb-prev aria-label="Foto anterior"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      <button type="button" class="lb-btn lb-next" data-lb-next aria-label="Foto siguiente"><svg class="icon"><use href="#i-arrow"/></svg></button>
+    </dialog>
+  </section>
+
+  <!-- MADRE PAULA Y OLESA -->
+  <section id="madre-paula" class="bg-cream">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Madre Paula y Olesa</span>
+        <h2>El último hogar de <span class="mark">Madre Paula</span></h2>
+        <p>Olesa de Montserrat fue la casa de Santa Paula Montal durante sus últimos 30 años.</p>
+      </div>
+      <ol class="paula-line">
+        <li class="reveal" style="--c:var(--purple)"><b>1829</b><small>Figueres</small><p>Abre su primera escuela para niñas.</p></li>
+        <li class="reveal" style="--c:var(--blue)"><b>1847</b><small>Sabadell</small><p>Funda las Hijas de María, Madres Escolapias.</p></li>
+        <li class="reveal" style="--c:var(--orange)"><b>1859</b><small>Olesa de Montserrat</small><p>Llega a Olesa, donde sigue educando a niñas y jóvenes.</p></li>
+        <li class="reveal" style="--c:var(--green)"><b>1889</b><small>Olesa de Montserrat</small><p>Muere el 26 de febrero. En 2001 es proclamada santa.</p></li>
+      </ol>
+      <div class="paula-cta reveal"><a class="btn btn-navy" href="nuestro-colegio.html#historia">Toda nuestra historia <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section>
+    <div class="wrap">
+      <div class="admit reveal">
+        <span class="badge">✦ Casa de Encuentros Olesa</span>
+        <h2>¿Quieres conocerla?</h2>
+        <p>Escríbenos y te contamos cómo visitar la casa o usarla para un encuentro.</p>
+        <div class="actions">
+          <a class="btn btn-orange" href="https://wa.link/hoishm" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> Escríbenos por WhatsApp</a>
+          <a class="btn btn-yellow" href="mailto:infosjcchia@sanjosedecalasanz.edu.co?subject=Casa%20de%20Encuentros%20Olesa"><svg class="icon"><use href="#i-mail"/></svg> Envíanos un correo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+        <p class="about">Colegio escolapio en Chía, Cundinamarca. Piedad y letras de Pre-jardín a Once.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+          <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+          <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Casa Olesa</h4>
+        <ul>
+          <li><a href="#la-casa">La casa</a></li>
+          <li><a href="#espacios">Espacios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#madre-paula">Madre Paula y Olesa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Plataformas</h4>
+        <ul>
+          <li><a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Master2000</a></li>
+          <li><a href="https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=1217&amp;searchedCategoryId=&amp;searchedAgreementName=COLEGIO%20SAN%20JOSE%20DE%20CALASANZ%20CHIA" target="_blank" rel="noopener">Mi Pago Amigo</a></li>
+          <li><a href="https://payment.santillanacompartir.com/co/comp/welcome" target="_blank" rel="noopener">Santillana Compartir</a></li>
+          <li><a href="https://consultadocumentos.segurosdelestado.com/consultar/SEGUROS%20DE%20VIDA%20DEL%20ESTADO/Estudiantil/identificacion" target="_blank" rel="noopener">Póliza estudiantil</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="contact">
+          <li><svg class="icon"><use href="#i-pin"/></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio%20San%20Jos%C3%A9%20de%20Calasanz%20Ch%C3%ADa" target="_blank" rel="noopener">Km 9,3 · Vereda Yerbabuena, Chía, Cundinamarca</a></li>
+          <li><svg class="icon"><use href="#i-chat"/></svg><a href="https://wa.link/hoishm" target="_blank" rel="noopener">WhatsApp 304 274 9654</a></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+573152063987">Celular 315 206 3987</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span class="proto-note"><!-- PROTOTIPO: borrar al publicar como sitio oficial -->Prototipo conceptual de rediseño · No es el sitio oficial del colegio.</span>
+      <span>Casa de Encuentros Olesa · Junto al Colegio San José de Calasanz, Chía.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.link/hoishm" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+
+<script src="app.js?v=13"></script>
+</body>
+</html>

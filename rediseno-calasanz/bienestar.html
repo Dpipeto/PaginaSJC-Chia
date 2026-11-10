@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienestar — Calasanz Chía</title>
+<meta name="robots" content="noindex, nofollow"> <!-- PROTOTIPO: borrar al publicar como sitio oficial -->
+<meta name="description" content="Prototipo conceptual: psicoorientación, salud, restaurante, rutas, biblioteca y extraescolares del Colegio San José de Calasanz (Chía). No es el sitio oficial.">
+<link rel="icon" href="img/escudo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="estilos.css?v=13">
+<style>
+/* ============ Hero: mesa de ayuda ============ */
+.helpdesk{position:relative; background:#fff; color:var(--ink); border-radius:var(--radius); padding:30px 18px 18px; box-shadow:0 30px 60px -30px rgba(0,0,0,.6); max-width:470px; width:100%; margin:0 auto}
+@media (min-width:560px){.helpdesk{padding:30px 24px 22px}}
+.helpdesk .tape{position:absolute; top:-14px; left:22px; background:var(--orange); color:var(--navy); font-weight:800; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding:7px 12px; border-radius:8px; transform:rotate(-3deg)}
+.helpdesk h2{font-size:1.4rem; margin:0 6px 14px}
+.helpdesk ul{list-style:none; margin:0; padding:0; display:grid; gap:4px}
+.helpdesk a{display:flex; align-items:center; gap:14px; padding:10px 8px; border-radius:14px; text-decoration:none; transition:background .2s}
+.helpdesk a:hover{background:var(--yellow-tint)}
+.helpdesk .ico{flex:none; width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--c); color:var(--ic, #fff)}
+.helpdesk b{display:block; color:var(--navy); line-height:1.25}
+.helpdesk small{display:block; color:var(--gray); font-size:.82rem}
+.helpdesk a > .icon{margin-left:auto; color:var(--gray); transition:transform .2s}
+.helpdesk a:hover > .icon{transform:translateX(3px); color:var(--navy)}
+
+/* ============ Psicoorientación ============ */
+.psy{display:grid; gap:16px}
+@media (min-width:960px){.psy{grid-template-columns:1fr 1.4fr}}
+.who{position:relative; overflow:hidden; isolation:isolate; padding:32px 28px; border-radius:32px; background:var(--navy); color:#D5E1EB; display:flex; flex-direction:column; gap:14px}
+.who::after{content:""; position:absolute; z-index:-1; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--yellow), var(--orange)); right:-100px; bottom:-120px; opacity:.85}
+.who h3{color:#fff; font-size:clamp(1.6rem,3vw,2.1rem)}
+.who .chips{display:flex; flex-wrap:wrap; gap:8px}
+.who .chips span{font-size:.85rem; font-weight:700; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,.1); color:#fff}
+.who .chips span:first-child{background:var(--yellow); color:var(--navy)}
+.who-cta{margin-top:auto; display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px}
+.who-cta .mail{color:#B9CAD8; font-size:.85rem; font-weight:600; overflow-wrap:anywhere; text-decoration:none}
+.who-cta .mail:hover{color:var(--yellow)}
+.funcs{display:grid; gap:12px}
+@media (min-width:560px){.funcs{grid-template-columns:1fr 1fr}}
+.func{padding:22px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); display:flex; flex-direction:column; gap:8px; transition:transform .2s, box-shadow .2s}
+.func:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+.func .ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--c); color:var(--ic, #fff)}
+.func h3{font-size:1.15rem}
+.func p{font-size:.92rem; color:var(--gray); line-height:1.5}
+
+.route{margin-top:56px}
+.route h3.t{font-size:clamp(1.5rem,3vw,2.1rem); margin:10px 0 24px}
+.route ol{list-style:none; margin:0; padding:0; display:grid; gap:12px; counter-reset:st}
+@media (min-width:1000px){.route ol{grid-template-columns:repeat(5,1fr); gap:10px}}
+.route li{counter-increment:st; position:relative; padding:22px 20px 20px; border-radius:var(--radius); background:var(--soft); display:flex; flex-direction:column; gap:8px}
+.route li::before{content:counter(st); width:42px; height:42px; border-radius:50%; display:grid; place-items:center; background:var(--yellow); color:var(--navy); font:800 1.1rem var(--display)}
+.route li:last-child{background:var(--navy); color:#D5E1EB} .route li:last-child h4{color:#fff} .route li:last-child::before{background:var(--orange)}
+@media (min-width:1000px){.route li:not(:last-child)::after{content:""; position:absolute; top:42px; right:-12px; width:14px; height:14px; border-top:3px solid var(--orange); border-right:3px solid var(--orange); transform:rotate(45deg); z-index:1}}
+.route h4{font-family:var(--display); font-size:1.12rem; color:var(--navy)}
+.route p{font-size:.9rem; line-height:1.5}
+.route .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:auto; padding-top:4px}
+.route .tags span{font-size:.72rem; font-weight:700; padding:4px 9px; border-radius:999px; background:#fff; color:var(--navy)}
+.route li:last-child .tags span{background:rgba(255,255,255,.12); color:#fff}
+
+/* Semáforo */
+.sema-box{margin-top:56px; display:grid; gap:20px; padding:28px 20px; border-radius:32px; background:linear-gradient(135deg, #F4F7FA, #FEF5D6)}
+@media (min-width:768px){.sema-box{padding:44px}}
+@media (min-width:960px){.sema-box{grid-template-columns:auto 1fr; gap:44px; align-items:center}}
+.sema-box .intro{grid-column:1/-1}
+.sema-box .intro h3{font-size:clamp(1.5rem,3vw,2.1rem); margin-top:10px}
+.sema-box .intro p{color:var(--gray); margin-top:8px; max-width:560px}
+.light{display:flex; gap:14px; align-items:stretch; justify-content:center}
+.pole{display:flex; flex-direction:column; gap:14px; padding:18px; border-radius:36px; background:#001F38; box-shadow:0 24px 40px -24px rgba(0,31,56,.9)}
+.lamp{width:78px; height:78px; border-radius:50%; border:0; cursor:pointer; background:var(--c); opacity:.22; transition:opacity .25s, box-shadow .25s, transform .2s}
+.lamp:hover{opacity:.5}
+.lamp[aria-pressed="true"]{opacity:1; box-shadow:0 0 0 6px rgba(255,255,255,.08), 0 0 36px 6px var(--c)}
+.lamp:focus-visible{outline:3px solid #fff; outline-offset:4px}
+.lamp.red{--c:#E5484D} .lamp.yellow{--c:var(--yellow)} .lamp.green{--c:var(--green)}
+.lamp-labels{display:flex; flex-direction:column; gap:14px; padding:18px 0}
+.lamp-labels span{height:78px; display:flex; align-items:center; font:800 .82rem var(--display); letter-spacing:.1em; text-transform:uppercase; color:var(--gray)}
+.sema-panel{padding:26px; border-radius:var(--radius); background:#fff; border-left:8px solid var(--c); box-shadow:var(--shadow); min-height:200px}
+.sema-panel .k{font:800 .78rem var(--display); letter-spacing:.14em; text-transform:uppercase; color:var(--c)}
+.sema-panel h4{font-size:clamp(1.6rem,3vw,2.2rem); margin:8px 0 10px}
+.sema-panel p{color:var(--ink)}
+.sema-panel small{display:block; margin-top:12px; color:var(--gray); font-size:.88rem}
+.four{grid-column:1/-1; list-style:none; margin:0; padding:0; display:grid; gap:10px}
+@media (min-width:640px){.four{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.four{grid-template-columns:repeat(4,1fr)}}
+.four li{padding:18px; border-radius:var(--radius-sm); background:#fff; border:1px solid var(--line)}
+.four b{display:flex; align-items:center; gap:10px; font:800 1.05rem var(--display); color:var(--navy); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px}
+.four b .icon{color:var(--orange)}
+.four p{font-size:.9rem; color:var(--gray); line-height:1.5}
+
+/* Familias y redes */
+.digital{margin-top:56px; display:grid; gap:24px; padding:32px 24px; border-radius:32px; background:var(--purple); color:#EBDCF0; position:relative; overflow:hidden; isolation:isolate}
+@media (min-width:768px){.digital{padding:48px}}
+@media (min-width:960px){.digital{grid-template-columns:1fr 1fr; gap:40px}}
+.digital::after{content:""; position:absolute; z-index:-1; width:300px; height:300px; border-radius:50%; border:30px solid rgba(255,255,255,.06); right:-90px; top:-110px}
+.digital .kicker{color:var(--yellow)} .digital .kicker::before{background:var(--orange)}
+.digital h3{color:#fff; font-size:clamp(1.7rem,3.4vw,2.5rem); margin:12px 0}
+.digital .tag{display:inline-block; margin-top:16px; font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.12); color:#fff}
+.digital blockquote{margin:22px 0 0; padding:18px 20px; border-radius:var(--radius-sm); background:rgba(255,255,255,.1); font:700 1.1rem/1.35 var(--display); color:#fff}
+.dlist{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.dlist li{display:flex; gap:12px; align-items:flex-start; padding:14px 16px; border-radius:var(--radius-sm); background:#fff; color:var(--ink); font-size:.95rem; line-height:1.45}
+.dlist .icon{flex:none; color:#3F6B00; margin-top:1px}
+.digital h4{color:var(--yellow); font-size:1.05rem; margin:20px 0 10px}
+.ideas{display:flex; flex-wrap:wrap; gap:8px}
+.ideas span{font-size:.85rem; font-weight:700; padding:8px 14px; border-radius:999px; background:var(--yellow); color:var(--navy)}
+.digital .src{display:inline-flex; align-items:center; gap:8px; margin-top:18px; font-weight:700; font-size:.9rem; color:#fff; text-decoration:none}
+.digital .src:hover{color:var(--yellow)}
+
+/* ============ Salud ============ */
+.health{display:grid; gap:16px}
+@media (min-width:960px){.health{grid-template-columns:1.4fr 1fr; grid-template-rows:auto auto}}
+.hcard{padding:28px; border-radius:var(--radius); display:flex; flex-direction:column; gap:12px}
+.hcard h3{font-size:1.45rem; color:inherit}
+.hcard p{font-size:.95rem}
+.h-proto{background:#fff; border:1px solid var(--line)}
+@media (min-width:960px){.h-proto{grid-row:span 2}}
+.h-proto h3{color:var(--navy)}
+.h-proto p{color:var(--gray)}
+.cases{display:grid; grid-template-columns:repeat(auto-fill, minmax(150px,1fr)); gap:8px; margin:6px 0}
+.cases span{display:flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; background:var(--soft); font-size:.86rem; font-weight:700; color:var(--navy); line-height:1.25}
+.cases span::before{content:""; flex:none; width:8px; height:8px; border-radius:50%; background:var(--teal)}
+.h-proto .credit{display:flex; align-items:center; gap:10px; font-size:.85rem; color:var(--gray); padding:12px 14px; border-radius:12px; background:var(--cream)}
+.h-proto .btn{align-self:flex-start; margin-top:auto}
+.h-sos{background:var(--navy); color:#D5E1EB; position:relative; overflow:hidden; isolation:isolate}
+.h-sos::after{content:""; position:absolute; z-index:-1; width:180px; height:180px; border-radius:50%; border:22px solid rgba(255,255,255,.07); right:-50px; bottom:-70px}
+.h-sos .big{font:800 clamp(3.4rem,7vw,4.6rem)/1 var(--display); color:var(--yellow); letter-spacing:-.03em}
+.h-sos .row{display:flex; align-items:center; gap:16px}
+.h-pol{background:var(--yellow); color:var(--navy)}
+.h-pol .btn{align-self:flex-start}
+
+/* ============ Restaurante ============ */
+.food-grid{display:grid; gap:20px}
+@media (min-width:1000px){.food-grid{grid-template-columns:.85fr 1.15fr; align-items:start}}
+.kitchen{padding:28px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); display:flex; flex-direction:column; gap:14px}
+.kitchen h3{font-size:1.45rem}
+.price{display:flex; align-items:center; gap:16px; padding:16px 18px; border-radius:var(--radius-sm); background:var(--navy); color:#D5E1EB}
+.price b{font:800 2rem/1 var(--display); color:var(--yellow)}
+.price span{font-size:.9rem; line-height:1.4}
+.facts{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+.facts li{display:flex; gap:12px; align-items:flex-start; font-size:.93rem; color:var(--ink); line-height:1.45}
+.facts .icon{flex:none; color:var(--teal); margin-top:2px}
+.kitchen .row{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
+.menu-week{min-width:0}
+.menu-week .bar{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px}
+.menu-week h3{font-size:1.45rem}
+.menu-week .bar small{font-size:.8rem; font-weight:700; padding:6px 12px; border-radius:999px; background:var(--yellow-tint); color:var(--navy)}
+.days{display:grid; grid-auto-flow:column; grid-auto-columns:min(78%,240px); gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 16px; scrollbar-width:thin; scrollbar-color:var(--line) transparent}
+@media (min-width:1000px){.days{grid-auto-flow:row; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); overflow:visible; padding-bottom:0}}
+.day{scroll-snap-align:start; padding:18px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); border-top:6px solid var(--c); display:flex; flex-direction:column; gap:10px}
+.day .d{font:800 1.15rem var(--display); color:var(--navy)}
+.day .lbl{font-size:.7rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--gray)}
+.day ul{margin:2px 0 0; padding:0; list-style:none; display:grid; gap:3px; font-size:.88rem; line-height:1.4; color:var(--ink)}
+.day .snack{padding:10px 12px; border-radius:12px; background:var(--cream)}
+.day-more{background:var(--navy); border-color:var(--navy); color:#D5E1EB; justify-content:center; text-decoration:none}
+.day-more .d{color:var(--yellow)}
+
+/* Loncheras */
+.lunch{margin-top:56px; padding:28px 20px; border-radius:32px; background:var(--cream); display:grid; gap:28px}
+@media (min-width:768px){.lunch{padding:44px}}
+@media (min-width:1000px){.lunch{grid-template-columns:1.25fr .75fr; align-items:start}}
+.lunch h3{font-size:clamp(1.5rem,3vw,2.1rem); margin-top:10px}
+.lunch .lead{color:var(--gray); margin:8px 0 18px}
+.groups{display:grid; gap:14px}
+.group h4{display:flex; align-items:center; gap:10px; font-family:var(--body); font-size:.8rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin-bottom:8px}
+.group h4 i{width:12px; height:12px; border-radius:50%; background:var(--c)}
+.group h4 em{font-style:normal; font-weight:600; letter-spacing:0; text-transform:none; color:var(--gray)}
+.opts{display:flex; flex-wrap:wrap; gap:8px}
+.food{display:inline-flex; align-items:center; gap:8px; padding:9px 14px; border-radius:999px; border:2px solid var(--line); background:#fff; font:700 .9rem var(--body); color:var(--navy); cursor:pointer; transition:border-color .2s, background .2s, transform .15s}
+.food:hover{border-color:var(--c)}
+.food:active{transform:scale(.96)}
+.food[aria-pressed="true"]{background:var(--c); border-color:var(--c); color:var(--tc, var(--navy))}
+.food .e{font-size:1.15rem; line-height:1}
+.lbox{position:sticky; bottom:88px; z-index:2; margin-top:26px; padding:22px 16px 16px; border-radius:24px; background:var(--navy); color:#D5E1EB; box-shadow:0 18px 40px -16px rgba(0,31,56,.7)}
+@media (min-width:1000px){.lbox{top:160px; bottom:auto; align-self:start; padding:26px 20px 20px}}
+.lbox::before{content:""; position:absolute; left:50%; top:-22px; width:96px; height:30px; transform:translateX(-50%); border:6px solid var(--navy); border-bottom:0; border-radius:20px 20px 0 0}
+.tray{display:grid; grid-template-columns:repeat(4,1fr); gap:6px}
+@media (min-width:1000px){.tray{grid-template-columns:repeat(2,1fr); gap:8px}}
+.slot{min-height:64px; border-radius:16px; border:2px dashed rgba(255,255,255,.25); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; padding:8px; text-align:center; font-size:.78rem; color:#9FB3C4; transition:background .2s, border-color .2s}
+.slot .e{font-size:1.8rem; line-height:1}
+.slot.on{border-style:solid; border-color:var(--c); background:rgba(255,255,255,.06); color:#fff; font-weight:700}
+.verdict{margin-top:12px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.08); font-size:.92rem; line-height:1.45; color:#fff}
+.verdict.done{background:var(--green); color:var(--navy); font-weight:700}
+.treat-note{margin-top:8px; font-size:.84rem; color:#FFD98A}
+.tips{list-style:none; margin:18px 0 0; padding:0; display:grid; gap:8px}
+.tips li{display:flex; gap:10px; font-size:.9rem; color:var(--ink); line-height:1.45}
+.tips li::before{content:"✓"; flex:none; font-weight:800; color:#3F6B00}
+.lunch .src{display:inline-flex; align-items:center; gap:8px; margin-top:14px; font-weight:700; color:var(--blue); text-decoration:none; font-size:.9rem}
+
+/* ============ Rutas ============ */
+.road{position:relative; overflow:hidden; isolation:isolate; padding:30px 24px 26px; border-radius:32px; background:var(--navy); color:#D5E1EB}
+@media (min-width:768px){.road{padding:40px}}
+.road h3{color:#fff; font-size:clamp(1.5rem,3vw,2.1rem); margin:10px 0 6px}
+.road .kicker{color:var(--yellow)}
+.road > p{max-width:520px}
+.stops{list-style:none; margin:32px 0 6px; padding:0; position:relative; display:grid; gap:16px}
+.stops::before{content:""; position:absolute; left:15px; top:6px; bottom:6px; width:4px; border-radius:4px; background:repeating-linear-gradient(180deg, var(--yellow) 0 12px, transparent 12px 22px)}
+@media (min-width:900px){
+  .stops{grid-template-columns:repeat(6,1fr); gap:8px; padding-top:44px}
+  .stops::before{left:4%; right:4%; top:56px; bottom:auto; width:auto; height:4px; background:repeating-linear-gradient(90deg, var(--yellow) 0 14px, transparent 14px 26px)}
+}
+.stops li{position:relative; display:flex; align-items:center; gap:14px; font-weight:700; color:#fff}
+@media (min-width:900px){.stops li{flex-direction:column; text-align:center; gap:10px; font-size:.9rem}}
+.stops .pin{flex:none; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--yellow); color:var(--navy); box-shadow:0 0 0 5px var(--navy); position:relative; z-index:1}
+.stops .pin .icon{width:18px; height:18px}
+.stops .no{color:#9FB3C4; text-decoration:line-through; text-decoration-thickness:2px}
+.stops .no .pin{background:#3A5670; color:#C8D6E2}
+.stops small{display:block; font-weight:500; font-size:.78rem; color:#9FB3C4; text-decoration:none}
+.bus{display:none}
+@media (min-width:900px){
+  .bus{display:grid; place-items:center; position:absolute; top:-2px; left:4%; width:46px; height:46px; border-radius:14px; background:var(--orange); color:var(--navy); animation:drive 9s ease-in-out infinite alternate}
+}
+@keyframes drive{to{left:calc(83% - 46px)}}
+.reasons{display:grid; gap:12px; margin-top:16px}
+@media (min-width:640px){.reasons{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.reasons{grid-template-columns:repeat(4,1fr)}}
+.reason{padding:22px; border-radius:var(--radius); background:#fff; border:1px solid var(--line); display:flex; flex-direction:column; gap:8px}
+.reason .ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--c); color:var(--ic, #fff)}
+.reason h3{font-size:1.1rem}
+.reason p{font-size:.9rem; color:var(--gray); line-height:1.5}
+.contact-row{display:grid; gap:12px; margin-top:16px}
+@media (min-width:880px){.contact-row{grid-template-columns:1fr 1fr}}
+.crow{display:flex; align-items:center; gap:16px; padding:18px 20px; border-radius:var(--radius); background:var(--yellow); color:var(--navy); text-decoration:none; transition:transform .2s}
+.crow:hover{transform:translateY(-3px)}
+.crow.alt{background:#fff; border:1px solid var(--line)}
+.crow .ico{flex:none; width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:var(--navy); color:var(--yellow)}
+.crow b{display:block; font-family:var(--display); font-size:1.12rem}
+.crow small{display:block; font-size:.86rem; overflow-wrap:anywhere}
+.crow > .icon{margin-left:auto; flex:none}
+
+/* ============ Biblioteca ============ */
+.lib{display:grid; gap:32px; align-items:center}
+@media (min-width:960px){.lib{grid-template-columns:1fr 1.1fr; gap:56px}}
+.loan{position:relative; max-width:420px; width:100%; margin:0 auto; padding:26px 24px; border-radius:20px; background:#FFFDF5; border:1px solid #EBDDA8; box-shadow:var(--shadow); transform:rotate(-2deg); font-family:var(--body)}
+.loan .top{display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:2px solid var(--navy)}
+.loan .top b{font:800 1.1rem var(--display); color:var(--navy); letter-spacing:.02em; text-transform:uppercase}
+.loan .top small{font-size:.72rem; font-weight:700; color:var(--gray); letter-spacing:.1em; text-transform:uppercase}
+.loan table{width:100%; border-collapse:collapse; margin-top:6px; font-size:.86rem}
+.loan th{text-align:left; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); padding:8px 4px; border-bottom:1px solid #EBDDA8}
+.loan td{padding:11px 4px; border-bottom:1px dashed #EBDDA8; color:var(--navy); font-weight:600}
+.loan .stamp{position:absolute; right:18px; bottom:22px; padding:8px 12px; border:3px solid var(--orange); border-radius:10px; color:var(--orange); font:800 .9rem/1.05 var(--display); text-transform:uppercase; text-align:center; transform:rotate(-10deg); background:rgba(255,253,245,.85)}
+.loan .stamp b{display:block; font-size:1.6rem}
+.rules{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+.rules li{display:grid; grid-template-columns:48px 1fr; gap:14px; padding:18px; border-radius:var(--radius); background:#fff; border:1px solid var(--line)}
+.rules .ico{width:48px; height:48px; border-radius:14px; display:grid; place-items:center; background:var(--c); color:var(--ic, #fff)}
+.rules h3{font-size:1.12rem; margin-bottom:3px}
+.rules p{font-size:.92rem; color:var(--gray); line-height:1.5}
+
+/* ============ Extraescolares ============ */
+.loop{list-style:none; margin:0; padding:0; display:grid; gap:14px; counter-reset:lp}
+@media (min-width:640px){.loop{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1040px){.loop{grid-template-columns:repeat(4,1fr)}}
+.loop li{counter-increment:lp; position:relative; overflow:hidden; isolation:isolate; padding:26px 22px; border-radius:var(--radius); background:var(--c); color:var(--tc, #fff); display:flex; flex-direction:column; gap:8px; min-height:200px}
+.loop li::before{content:"0" counter(lp); position:absolute; z-index:-1; right:14px; bottom:-4px; font:800 4.2rem/1 var(--display); opacity:.18}
+.loop h3{color:inherit; font-size:1.5rem}
+.loop p{font-size:.93rem; line-height:1.5; opacity:.92}
+.spaces{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px; margin-top:28px}
+.spaces > span{font-weight:700; color:var(--navy)}
+.spaces a{display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:999px; background:#fff; border:1px solid #F3E2A6; font-weight:700; font-size:.88rem; color:var(--navy); text-decoration:none}
+.spaces a:hover{background:var(--yellow)}
+
+@media (prefers-reduced-motion: reduce){.bus{left:calc(50% - 23px)}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.5 5 4.6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2s-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></symbol>
+  <symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1z"/><path d="M21 12h1M18.5 4.5 18 5M2 12h1M12 2v1M4.93 4.93l.71.71"/></symbol>
+  <symbol id="i-idcard" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M14 10h4M14 14h4"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
+  <symbol id="i-park" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+  <symbol id="i-ear" viewBox="0 0 24 24"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/><path d="M19 3v4M17 5h4"/></symbol>
+</svg>
+
+<!-- Barra superior -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="info">
+      <span><svg class="icon"><use href="#i-pin"/></svg> Km 9,3 · Vereda Yerbabuena, Chía</span>
+      <a href="https://wa.link/hoishm" target="_blank" rel="noopener"><span><svg class="icon"><use href="#i-chat"/></svg> WhatsApp 304 274 9654</span></a>
+    </div>
+    <div class="soc">
+      <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+      <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Plataforma Master2000</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="brand" href="index.html">
+      <img src="img/escudo.png" alt="Escudo del Colegio San José de Calasanz">
+      <span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span>
+    </a>
+    <ul class="menu">
+      <li>
+        <button type="button" aria-haspopup="true">Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+          <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+          <li><a href="nuestro-colegio.html#pedagogia">Propuesta pedagógica</a></li>
+          <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+          <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+          <li><a href="nuestro-colegio.html#documentos">Manual, PEI y documentos</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Académico <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="academico.html#grados">Mi grado y plan de estudios</a></li>
+          <li><a href="academico.html#aprendemos">Cómo aprendemos</a></li>
+          <li><a href="academico.html#evaluacion">Sistema de evaluación</a></li>
+          <li><a href="academico.html#proyectos">Proyectos transversales</a></li>
+          <li><a href="academico.html#docentes">Directorio y atención a padres</a></li>
+          <li><a href="academico.html#recursos">Textos y plataformas</a></li>
+        </ul></div>
+      </li>
+      <li class="current">
+        <button type="button" aria-haspopup="true">Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="#psico">Psicoorientación</a></li>
+          <li><a href="#salud">Salud y póliza estudiantil</a></li>
+          <li><a href="#restaurante">Restaurante y loncheras</a></li>
+          <li><a href="#rutas">Rutas escolares</a></li>
+          <li><a href="#biblioteca">Biblioteca</a></li>
+          <li><a href="#extraescolares">Extraescolares</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+          <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+          <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+          <li><a href="comunicaciones.html#noticias">Noticias</a></li>
+          <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+          <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos (SQRR)</a></li>
+          <li><a href="index.html#siguenos">Redes sociales y videos</a></li>
+        </ul></div>
+      </li>
+      <li><a href="casa-olesa.html">Casa Olesa</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+    </ul>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo</a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </nav>
+</header>
+
+<!-- Menú móvil -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="top">
+      <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+      <button class="burger" type="button" data-close aria-label="Cerrar menú"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <a class="solo" href="index.html">Inicio <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <details><summary>Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+      <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+      <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+      <li><a href="nuestro-colegio.html#campus">Campus</a></li>
+      <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+      <li><a href="nuestro-colegio.html#documentos">Documentos</a></li>
+    </ul></details>
+    <details><summary>Académico <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="academico.html#grados">Mi grado y plan de estudios</a></li>
+      <li><a href="academico.html#evaluacion">Sistema de evaluación</a></li>
+      <li><a href="academico.html#docentes">Directorio y atención a padres</a></li>
+      <li><a href="academico.html#recursos">Textos y plataformas</a></li>
+    </ul></details>
+    <details open><summary>Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="#psico">Psicoorientación</a></li>
+      <li><a href="#salud">Salud y póliza estudiantil</a></li>
+      <li><a href="#restaurante">Restaurante y loncheras</a></li>
+      <li><a href="#rutas">Rutas escolares</a></li>
+      <li><a href="#biblioteca">Biblioteca</a></li>
+      <li><a href="#extraescolares">Extraescolares</a></li>
+    </ul></details>
+    <details><summary>Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+      <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+      <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+      <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+      <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos</a></li>
+    </ul></details>
+    <a class="solo" href="admisiones.html">Admisiones 2027 <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="casa-olesa.html">Casa de Encuentros Olesa <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="galeria.html">Galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="#contacto">Contacto <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo 2027</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero page-hero">
+    <span class="sun" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a><svg class="icon"><use href="#i-right"/></svg><span aria-current="page">Bienestar</span></nav>
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">Bienestar escolar</span>
+          <h1>Aquí te <span class="pill">cuidamos</span></h1>
+          <p class="hero-lead">Psicoorientación, salud, restaurante, rutas, biblioteca y extraescolares: todo lo que acompaña tu día en Calasanz, en un solo lugar.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-yellow" href="#psico">Hablar con psicoorientación <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-line" href="https://consultadocumentos.segurosdelestado.com/consultar/SEGUROS%20DE%20VIDA%20DEL%20ESTADO/Estudiantil/identificacion" target="_blank" rel="noopener"><svg class="icon"><use href="#i-idcard"/></svg> Carné de la póliza</a>
+          </div>
+          <div class="hero-facts">
+            <div><b>5</b><span>pasos para pedir ayuda</span></div>
+            <div><b>10</b><span>situaciones con protocolo</span></div>
+            <div><b>7</b><span>días de préstamo</span></div>
+          </div>
+        </div>
+        <aside class="helpdesk" aria-label="Accesos por necesidad">
+          <span class="tape">Bienestar</span>
+          <h2>¿Qué necesitas hoy?</h2>
+          <ul>
+            <li><a href="#psico"><span class="ico" style="--c:var(--purple)"><svg class="icon"><use href="#i-chat"/></svg></span><span><b>Hablar con alguien</b><small>Psicoorientación</small></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#salud"><span class="ico" style="--c:#E5484D"><svg class="icon"><use href="#i-cross"/></svg></span><span><b>Me siento mal</b><small>Salud y primeros auxilios</small></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#restaurante"><span class="ico" style="--c:var(--orange);--ic:var(--navy)"><svg class="icon"><use href="#i-food"/></svg></span><span><b>Almorzar en el colegio</b><small>Menú y loncheras</small></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#rutas"><span class="ico" style="--c:var(--yellow);--ic:var(--navy)"><svg class="icon"><use href="#i-bus"/></svg></span><span><b>Llegar al colegio</b><small>Rutas autorizadas</small></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#biblioteca"><span class="ico" style="--c:var(--blue)"><svg class="icon"><use href="#i-book"/></svg></span><span><b>Un libro</b><small>Biblioteca</small></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+            <li><a href="#extraescolares"><span class="ico" style="--c:var(--green);--ic:var(--navy)"><svg class="icon"><use href="#i-music"/></svg></span><span><b>Algo después de clase</b><small>Extraescolares</small></span><svg class="icon"><use href="#i-arrow"/></svg></a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-NAVEGACIÓN -->
+  <nav class="subnav" aria-label="Secciones de la página">
+    <div class="wrap">
+      <ul>
+        <li><a href="#psico"><span class="n">01</span>Psicoorientación</a></li>
+        <li><a href="#salud"><span class="n">02</span>Salud</a></li>
+        <li><a href="#restaurante"><span class="n">03</span>Restaurante</a></li>
+        <li><a href="#rutas"><span class="n">04</span>Rutas</a></li>
+        <li><a href="#biblioteca"><span class="n">05</span>Biblioteca</a></li>
+        <li><a href="#extraescolares"><span class="n">06</span>Extraescolares</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PSICOORIENTACIÓN -->
+  <section id="psico">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Psicoorientación</span>
+        <h2>Hablar <span class="mark">ayuda</span></h2>
+        <p>Si algo te preocupa, en el colegio, en casa o contigo, puedes buscar a psicoorientación. Atiende de Preescolar a Once durante todo el año.</p>
+      </div>
+
+      <div class="psy">
+        <div class="who reveal">
+          <span class="kicker" style="color:var(--yellow)">¿Quién puede pedir una cita?</span>
+          <h3>Tú mismo, sin que nadie te mande</h3>
+          <p>Las solicitudes llegan de los estudiantes por voluntad propia, de las familias y de los docentes.</p>
+          <div class="chips"><span>Tú</span><span>Tu familia</span><span>Tus profesores</span><span>Directivos</span></div>
+          <div class="who-cta">
+            <a class="btn btn-yellow" href="https://calendar.app.google/SFxHuWDs3ufWTfXdA" target="_blank" rel="noopener"><svg class="icon"><use href="#i-cal"/></svg> Familias: agenden una cita</a>
+            <a class="mail" href="mailto:psicoorientacion@sanjosedecalasanz.edu.co">psicoorientacion@sanjosedecalasanz.edu.co</a>
+          </div>
+        </div>
+        <div class="funcs">
+          <article class="func reveal" style="--c:var(--purple)"><span class="ico"><svg class="icon"><use href="#i-cal"/></svg></span><h3>Programa y atiende citas</h3><p>Según el horario académico y la disponibilidad de la orientadora.</p></article>
+          <article class="func reveal" style="--c:var(--teal);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-heart"/></svg></span><h3>Hace seguimiento</h3><p>Acompaña a cada estudiante y a su familia en el proceso.</p></article>
+          <article class="func reveal" style="--c:var(--blue)"><span class="ico"><svg class="icon"><use href="#i-users"/></svg></span><h3>Remite si hace falta</h3><p>A consulta externa, con trabajo interdisciplinario.</p></article>
+          <article class="func reveal" style="--c:var(--yellow);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-spark"/></svg></span><h3>Propone actividades</h3><p>Durante el año escolar, de Preescolar a grado Once.</p></article>
+        </div>
+      </div>
+
+      <div class="route reveal">
+        <span class="kicker">Ruta de atención</span>
+        <h3 class="t">Así funciona, paso a paso</h3>
+        <ol>
+          <li><h4>Solicitud</h4><p>Tu director de curso remite el caso. Lo puede pedir:</p><div class="tags"><span>Tú</span><span>Familia</span><span>Docentes</span><span>Directivos</span></div></li>
+          <li><h4>Recepción</h4><p>Psicología recibe la solicitud.</p></li>
+          <li><h4>Información</h4><p>Se reúne lo necesario para entender la situación.</p><div class="tags"><span>Historias</span><span>Observador</span><span>Entrevistas</span></div></li>
+          <li><h4>Valoración</h4><p>Psicología conversa contigo y observa cómo te sientes y actúas.</p></li>
+          <li><h4>Plan</h4><p>Seguimiento en el colegio y, si hace falta, remisión externa.</p><div class="tags"><span>Atención individual</span><span>Equipo interdisciplinario</span><span>Actividades lúdicas</span><span>Redes de apoyo</span></div></li>
+        </ol>
+      </div>
+
+      <div class="sema-box reveal">
+        <div class="intro">
+          <span class="kicker">Herramienta de psicoorientación</span>
+          <h3>Semáforo para resolver conflictos</h3>
+          <p>Toca cada luz. Cuando aparece la rabia o la impaciencia, el semáforo te ayuda a no reaccionar en caliente.</p>
+        </div>
+        <div class="light">
+          <div class="pole" role="group" aria-label="Semáforo">
+            <button class="lamp red" type="button" aria-label="Alto" aria-pressed="true" aria-controls="sema-panel" data-lamp="0"></button>
+            <button class="lamp yellow" type="button" aria-label="Piensa" aria-pressed="false" aria-controls="sema-panel" data-lamp="1"></button>
+            <button class="lamp green" type="button" aria-label="Adelante" aria-pressed="false" aria-controls="sema-panel" data-lamp="2"></button>
+          </div>
+          <div class="lamp-labels" aria-hidden="true"><span>Alto</span><span>Piensa</span><span>Adelante</span></div>
+        </div>
+        <div class="sema-panel" id="sema-panel" aria-live="polite" style="--c:#E5484D">
+          <span class="k">Luz roja</span>
+          <h4>Alto</h4>
+          <p>Tranquilízate y piensa antes de actuar.</p>
+          <small>La rabia, la ansiedad y la prisa nos hacen cometer más errores.</small>
+        </div>
+        <ol class="four">
+          <li><b><svg class="icon"><use href="#i-hand"/></svg>1. Stop</b><p>Para. Cuando llega una emoción fuerte, primero detente.</p></li>
+          <li><b><svg class="icon"><use href="#i-wind"/></svg>2. Respira</b><p>Tómate un momento y respira profundo: baja el estrés y el impulso.</p></li>
+          <li><b><svg class="icon"><use href="#i-bulb"/></svg>3. Piensa</b><p>Define el problema y piensa en las consecuencias de cada solución.</p></li>
+          <li><b><svg class="icon"><use href="#i-check"/></svg>4. Actúa</b><p>Decide sin rabia. Y si lo necesitas, pide apoyo: siempre hay alguien cerca.</p></li>
+        </ol>
+      </div>
+
+      <div class="digital reveal">
+        <div>
+          <span class="kicker">Para las familias</span>
+          <h3>Cuidemos su mente, su corazón y su futuro</h3>
+          <p>Algunos estudiantes encuentran en redes contenido que no es para su edad, y eso afecta su bienestar emocional, su comportamiento y sus decisiones. El acompañamiento en casa hace la diferencia.</p>
+          <blockquote>No se trata de prohibir, sino de orientar y acompañar.</blockquote>
+          <span class="tag">Campaña de psicoorientación 2026</span>
+        </div>
+        <div>
+          <ul class="dlist">
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Revisen lo que ven en YouTube, Instagram y Facebook.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Conversen sobre lo que ven y cómo se sienten.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Activen controles parentales y límites de uso.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Fomenten un uso responsable y crítico de las redes.</span></li>
+          </ul>
+          <h4>Ideas para acompañarlos</h4>
+          <div class="ideas"><span>Tiempo de calidad</span><span>Interés por su mundo digital</span><span>El ejemplo empieza en casa</span></div>
+          <a class="src" href="https://master2000.net/recursos/uploads/338/2027/padresdefamilia.png" target="_blank" rel="noopener">Ver la pieza completa <svg class="icon"><use href="#i-out"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALUD -->
+  <section id="salud" class="bg-soft">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Salud y seguridad</span>
+        <h2>Si te sientes mal, <span class="mark">sabemos qué hacer</span></h2>
+        <p>El colegio tiene un espacio de primeros auxilios y un protocolo claro para atender cada situación.</p>
+      </div>
+      <div class="health">
+        <article class="hcard h-proto reveal">
+          <span class="kicker">Protocolo de salud escolar</span>
+          <h3>Una guía paso a paso para 10 situaciones</h3>
+          <p>El personal del colegio sabe cómo actuar, desde un dolor de cabeza hasta una emergencia, y cuándo acudir a profesionales de la salud o a los servicios de emergencia.</p>
+          <div class="cases">
+            <span>Golpe de calor</span><span>Atragantamiento</span><span>Malestar estomacal</span><span>Caídas y golpes</span><span>Fiebre</span><span>Desmayo</span><span>Infección respiratoria</span><span>Quemaduras</span><span>Dolor de cabeza</span><span>Cólicos menstruales</span>
+          </div>
+          <p class="credit"><svg class="icon"><use href="#i-users"/></svg> Elaborado con estudiantes de Enfermería de la Universidad de La Sabana (2024).</p>
+          <a class="btn btn-navy" href="https://www.master2000.net/recursos/menu/338/4565/mper_arch_58620_Protocolo%20de%20atencion%20en%20situaciones%20de%20salud%20escolar.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-file"/></svg> Ver el protocolo (PDF)</a>
+        </article>
+        <article class="hcard h-sos reveal">
+          <span class="kicker" style="color:var(--yellow)">Emergencias</span>
+          <div class="row"><span class="big">123</span><p>Línea única nacional de emergencias. En el colegio, avisa de inmediato a un profesor.</p></div>
+        </article>
+        <article class="hcard h-pol reveal">
+          <h3>Póliza de accidentes escolares</h3>
+          <p>Descarga el carné de la póliza estudiantil con el número de documento del estudiante.</p>
+          <a class="btn btn-navy" href="https://consultadocumentos.segurosdelestado.com/consultar/SEGUROS%20DE%20VIDA%20DEL%20ESTADO/Estudiantil/identificacion" target="_blank" rel="noopener"><svg class="icon"><use href="#i-idcard"/></svg> Descargar carné <svg class="icon"><use href="#i-out"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTE -->
+  <section id="restaurante">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Restaurante y loncheras</span>
+        <h2>Comer bien también es <span class="mark">aprender</span></h2>
+        <p>Un restaurante escolar opcional, con almuerzo y refrigerio, y consejos para preparar loncheras en casa.</p>
+      </div>
+      <div class="food-grid">
+        <article class="kitchen reveal">
+          <h3>Restaurante escolar</h3>
+          <div class="price"><b>$13.000</b><span>Almuerzo individual. Pídelo y págalo antes de las 8:00 a.m.</span></div>
+          <ul class="facts">
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>Comida con los nutrientes que necesitas, bajo normas de Buenas Prácticas de Manufactura.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>El personal usa gorro, delantal, guantes, tapabocas y pinzas.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>El menú se publica cada mes en la página del colegio.</span></li>
+            <li><svg class="icon"><use href="#i-tick"/></svg><span>El colegio revisa que se cumplan las normas y el menú.</span></li>
+          </ul>
+          <div class="row">
+            <a class="btn btn-sm btn-yellow" href="https://www.master2000.net/recursos/menu/338/4565/mper_arch_124205_MENU%20RESTAURANTE%20JULIO-1.pdf" target="_blank" rel="noopener"><svg class="icon"><use href="#i-file"/></svg> Menú completo</a>
+            <a class="btn btn-sm btn-soft" href="https://www.master2000.net/recursos/menu/338/4565/mper_arch_42847_informacion%20restaurante.png" target="_blank" rel="noopener">Contacto del restaurante <svg class="icon"><use href="#i-out"/></svg></a>
+          </div>
+        </article>
+        <div class="menu-week reveal">
+          <div class="bar"><h3>Una semana en el restaurante</h3><small>Menú de muestra · julio 2026</small></div>
+          <div class="days">
+            <article class="day" style="--c:var(--yellow)"><span class="d">Día 1</span><div class="snack"><span class="lbl">Refrigerio</span><ul><li>Arepa de queso</li><li>Milo</li></ul></div><div><span class="lbl">Almuerzo</span><ul><li>Arroz con pollo</li><li>Papita en casco</li><li>Fruta y postre</li><li>Limonada</li></ul></div></article>
+            <article class="day" style="--c:var(--orange)"><span class="d">Día 2</span><div class="snack"><span class="lbl">Refrigerio</span><ul><li>Cereal con yogur</li><li>Banano</li></ul></div><div><span class="lbl">Almuerzo</span><ul><li>Lomo de cerdo</li><li>Arroz verde y lentejas</li><li>Maduritos</li><li>Jugo natural y postre</li></ul></div></article>
+            <article class="day" style="--c:var(--teal)"><span class="d">Día 3</span><div class="snack"><span class="lbl">Refrigerio</span><ul><li>Ensalada de frutas</li><li>Barquillo</li></ul></div><div><span class="lbl">Almuerzo</span><ul><li>Burritos mexicanos</li><li>Fríjoles, guacamole y nachos</li><li>Ensalada o fruta</li><li>Jugo de fresa</li></ul></div></article>
+            <article class="day" style="--c:var(--purple)"><span class="d">Día 4</span><div class="snack"><span class="lbl">Refrigerio</span><ul><li>Pancake con miel y frutas</li><li>Chocolisto</li></ul></div><div><span class="lbl">Almuerzo</span><ul><li>Espagueti con pollo o carne</li><li>Crema de verduras</li><li>Pan italiano y fruta</li><li>Jugo natural</li></ul></div></article>
+            <article class="day" style="--c:var(--green)"><span class="d">Día 5</span><div class="snack"><span class="lbl">Refrigerio</span><ul><li>Arroz con leche</li><li>Galleta</li></ul></div><div><span class="lbl">Almuerzo</span><ul><li>Ajiaco santafereño</li><li>Arroz blanco</li><li>Aguacate</li><li>Limonada</li></ul></div></article>
+            <a class="day day-more" style="--c:var(--yellow)" href="https://www.master2000.net/recursos/menu/338/4565/mper_arch_124205_MENU%20RESTAURANTE%20JULIO-1.pdf" target="_blank" rel="noopener"><span class="d">Semana 2</span><span>Bandeja paisa, costillas BBQ, ajiaco y más en el menú completo</span><svg class="icon"><use href="#i-out"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lunch reveal" data-lunch>
+        <div>
+          <span class="kicker">Loncheras saludables</span>
+          <h3>Arma una lonchera balanceada</h3>
+          <p class="lead">El círculo de los alimentos ayuda a combinar grupos. Elige uno de cada uno y mira cómo queda.</p>
+          <div class="groups">
+            <div class="group" style="--c:var(--yellow)"><h4><i></i>Cereales y harinas</h4><div class="opts">
+              <button class="food" type="button" aria-pressed="false" data-g="cereal" data-e="🍞"><span class="e" aria-hidden="true">🍞</span>Pan integral</button>
+              <button class="food" type="button" aria-pressed="false" data-g="cereal" data-e="🌽"><span class="e" aria-hidden="true">🌽</span>Mazorca</button>
+              <button class="food" type="button" aria-pressed="false" data-g="cereal" data-e="🥣"><span class="e" aria-hidden="true">🥣</span>Avena</button>
+              <button class="food" type="button" aria-pressed="false" data-g="cereal" data-e="🥔"><span class="e" aria-hidden="true">🥔</span>Papa cocida</button>
+            </div></div>
+            <div class="group" style="--c:var(--green)"><h4><i></i>Frutas y verduras</h4><div class="opts">
+              <button class="food" type="button" aria-pressed="false" data-g="fruta" data-e="🍎"><span class="e" aria-hidden="true">🍎</span>Manzana</button>
+              <button class="food" type="button" aria-pressed="false" data-g="fruta" data-e="🍌"><span class="e" aria-hidden="true">🍌</span>Banano</button>
+              <button class="food" type="button" aria-pressed="false" data-g="fruta" data-e="🍊"><span class="e" aria-hidden="true">🍊</span>Mandarina</button>
+              <button class="food" type="button" aria-pressed="false" data-g="fruta" data-e="🥕"><span class="e" aria-hidden="true">🥕</span>Zanahoria</button>
+            </div></div>
+            <div class="group" style="--c:var(--teal)"><h4><i></i>Origen animal</h4><div class="opts">
+              <button class="food" type="button" aria-pressed="false" data-g="animal" data-e="🧀"><span class="e" aria-hidden="true">🧀</span>Queso</button>
+              <button class="food" type="button" aria-pressed="false" data-g="animal" data-e="🥚"><span class="e" aria-hidden="true">🥚</span>Huevo cocido</button>
+              <button class="food" type="button" aria-pressed="false" data-g="animal" data-e="🥛"><span class="e" aria-hidden="true">🥛</span>Yogur</button>
+              <button class="food" type="button" aria-pressed="false" data-g="animal" data-e="🍗"><span class="e" aria-hidden="true">🍗</span>Pollo</button>
+            </div></div>
+            <div class="group" style="--c:var(--orange)"><h4><i></i>Grasas y azúcares <em>· de vez en cuando</em></h4><div class="opts">
+              <button class="food" type="button" aria-pressed="false" data-g="antojo" data-e="🍟"><span class="e" aria-hidden="true">🍟</span>Papas de paquete</button>
+              <button class="food" type="button" aria-pressed="false" data-g="antojo" data-e="🥤"><span class="e" aria-hidden="true">🥤</span>Gaseosa</button>
+              <button class="food" type="button" aria-pressed="false" data-g="antojo" data-e="🍫"><span class="e" aria-hidden="true">🍫</span>Chocolatina</button>
+            </div></div>
+          </div>
+          <ul class="tips">
+            <li>Prepárenla juntos: así le dan ganas de comérsela.</li>
+            <li>Dejen que escoja entre las opciones que hay en casa.</li>
+            <li>Compren poco de lo grasoso y azucarado, sin prohibirlo del todo.</li>
+          </ul>
+          <a class="src" href="https://www.master2000.net/recursos/menu/338/4565/mper_50640_loncheras%20saludables.pdf" target="_blank" rel="noopener">Guía de loncheras saludables (PDF) <svg class="icon"><use href="#i-out"/></svg></a>
+        </div>
+        <div class="lbox" aria-live="polite">
+          <div class="tray">
+            <div class="slot" data-slot="cereal" style="--c:var(--yellow)"><span class="e">·</span>Cereales</div>
+            <div class="slot" data-slot="fruta" style="--c:var(--green)"><span class="e">·</span>Frutas</div>
+            <div class="slot" data-slot="animal" style="--c:var(--teal)"><span class="e">·</span>Origen animal</div>
+            <div class="slot" data-slot="antojo" style="--c:var(--orange)"><span class="e">·</span>Antojo</div>
+          </div>
+          <p class="verdict">Elige un alimento de cada grupo.</p>
+          <p class="treat-note" hidden>Un antojo de vez en cuando está bien: prohibirlo del todo lo vuelve más apetecible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUTAS -->
+  <section id="rutas" class="bg-soft">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Rutas escolares</span>
+        <h2>Ruta Amiga: <span class="mark">somos familia, nos cuidamos</span></h2>
+        <p>Elegir una ruta autorizada por el colegio es la opción más tranquila y segura para tu familia.</p>
+      </div>
+      <div class="road reveal">
+        <span class="kicker">Cobertura</span>
+        <h3>¿Hasta dónde llegan las rutas?</h3>
+        <p>Recogen en Chía y sus veredas y en municipios cercanos de la Sabana Norte.</p>
+        <span class="bus" aria-hidden="true"><svg class="icon"><use href="#i-bus"/></svg></span>
+        <ul class="stops">
+          <li><span class="pin"><svg class="icon"><use href="#i-pin"/></svg></span><span>Chía<small>y sus veredas</small></span></li>
+          <li><span class="pin"><svg class="icon"><use href="#i-pin"/></svg></span><span>Cajicá</span></li>
+          <li><span class="pin"><svg class="icon"><use href="#i-pin"/></svg></span><span>Sopó</span></li>
+          <li><span class="pin"><svg class="icon"><use href="#i-pin"/></svg></span><span>Briceño</span></li>
+          <li><span class="pin"><svg class="icon"><use href="#i-pin"/></svg></span><span>Tocancipá</span></li>
+          <li class="no"><span class="pin"><svg class="icon"><use href="#i-x"/></svg></span><span>Bogotá<small>sin servicio</small></span></li>
+        </ul>
+      </div>
+      <div class="reasons">
+        <article class="reason reveal" style="--c:var(--navy);--ic:var(--yellow)"><span class="ico"><svg class="icon"><use href="#i-park"/></svg></span><h3>Parqueadero seguro</h3><p>Los vehículos llegan y salen de un parqueadero organizado.</p></article>
+        <article class="reason reveal" style="--c:var(--purple)"><span class="ico"><svg class="icon"><use href="#i-user"/></svg></span><h3>Personal autorizado</h3><p>Cumple requisitos de formación, presentación y trato.</p></article>
+        <article class="reason reveal" style="--c:var(--teal);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-clock"/></svg></span><h3>Apoyo en la jornada</h3><p>Servicios adicionales durante el día escolar.</p></article>
+        <article class="reason reveal" style="--c:var(--green);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Todo en regla</h3><p>El colegio revisa documentos, requisitos legales e inspecciones.</p></article>
+      </div>
+      <div class="contact-row">
+        <a class="crow reveal" href="https://www.master2000.net/recursos/menu/338/4565/mper_arch_122363_Rutas%20Escolares.jpg" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-route"/></svg></span><span><b>Conductores autorizados</b><small>Nombres y teléfonos de las 5 rutas</small></span><svg class="icon"><use href="#i-out"/></svg></a>
+        <a class="crow alt reveal" href="mailto:sandrafrancob@sanjosedecalasanz.edu.co"><span class="ico"><svg class="icon"><use href="#i-mail"/></svg></span><span><b>¿Dudas sobre las rutas?</b><small>Profesora Sandra Franco · sandrafrancob@sanjosedecalasanz.edu.co</small></span><svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBLIOTECA -->
+  <section id="biblioteca">
+    <div class="wrap lib">
+      <div class="reveal">
+        <div class="loan" aria-hidden="true">
+          <div class="top"><b>Tarjeta de préstamo</b><small>Biblioteca SJC</small></div>
+          <table>
+            <tr><th>Libro</th><th>Devolver</th></tr>
+            <tr><td>Libro de consulta</td><td>+7 días</td></tr>
+            <tr><td>Libro de consulta</td><td>+7 días</td></tr>
+            <tr><td>Libro de consulta</td><td>+7 días</td></tr>
+            <tr><td>&nbsp;</td><td></td></tr>
+          </table>
+          <span class="stamp"><b>7</b>días</span>
+        </div>
+      </div>
+      <div>
+        <div class="head reveal">
+          <span class="kicker">Biblioteca</span>
+          <h2>Un libro te <span class="mark">espera</span></h2>
+          <p>La biblioteca complementa lo que aprendes en clase y te acerca a la cultura.</p>
+        </div>
+        <ul class="rules">
+          <li class="reveal" style="--c:var(--blue)"><span class="ico"><svg class="icon"><use href="#i-users"/></svg></span><div><h3>Abierta a toda la comunidad</h3><p>Estudiantes desde Transición, familias, profesores, empleados y Madres Escolapias.</p></div></li>
+          <li class="reveal" style="--c:var(--yellow);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-cal"/></svg></span><div><h3>Préstamo de 7 días</h3><p>La fecha de entrega queda en la tarjeta del libro, el libro de préstamos o el sistema.</p></div></li>
+          <li class="reveal" style="--c:var(--orange);--ic:var(--navy)"><span class="ico"><svg class="icon"><use href="#i-heart"/></svg></span><div><h3>Cuida el material</h3><p>Si un libro se pierde o se daña, quien lo prestó responde ante el colegio.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRAESCOLARES -->
+  <section id="extraescolares" class="bg-cream">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Extraescolares</span>
+        <h2>Después de clase, <span class="mark">sigue el plan</span></h2>
+        <p>Cada semestre el colegio arma la oferta de cursos y programas a partir de lo que les interesa a los estudiantes.</p>
+      </div>
+      <ol class="loop">
+        <li class="reveal" style="--c:var(--purple)"><h3>Escuchamos</h3><p>Identificamos las necesidades e intereses de los estudiantes.</p></li>
+        <li class="reveal" style="--c:var(--blue)"><h3>Diseñamos</h3><p>Estudiamos qué cursos son viables y los ofrecemos oficialmente.</p></li>
+        <li class="reveal" style="--c:var(--yellow);--tc:var(--navy)"><h3>Planeamos</h3><p>Cada programa tiene actividades para todo el semestre.</p></li>
+        <li class="reveal" style="--c:var(--green);--tc:var(--navy)"><h3>Mejoramos</h3><p>Seguimiento mensual y ajustes para que cada programa funcione mejor.</p></li>
+      </ol>
+      <div class="spaces reveal">
+        <span>Espacios para hacerlo:</span>
+        <a href="nuestro-colegio.html#campus"><svg class="icon"><use href="#i-music"/></svg> Aula de música</a>
+        <a href="nuestro-colegio.html#campus"><svg class="icon"><use href="#i-spark"/></svg> Aula de danzas</a>
+        <a href="nuestro-colegio.html#campus"><svg class="icon"><use href="#i-pin"/></svg> Zonas deportivas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section>
+    <div class="wrap">
+      <div class="admit reveal">
+        <span class="badge">✦ Bienestar Calasanz</span>
+        <h2>¿Necesitas hablar con alguien?</h2>
+        <p>Escríbenos y te ponemos en contacto con la persona indicada.</p>
+        <div class="actions">
+          <a class="btn btn-orange" href="https://wa.link/hoishm" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> Escríbenos por WhatsApp</a>
+          <a class="btn btn-yellow" href="mailto:infosjcchia@sanjosedecalasanz.edu.co"><svg class="icon"><use href="#i-mail"/></svg> Envíanos un correo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+        <p class="about">Colegio escolapio en Chía, Cundinamarca. Piedad y letras de Pre-jardín a Once.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+          <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+          <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Bienestar</h4>
+        <ul>
+          <li><a href="#psico">Psicoorientación</a></li>
+          <li><a href="#salud">Salud y póliza</a></li>
+          <li><a href="#restaurante">Restaurante</a></li>
+          <li><a href="#rutas">Rutas escolares</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nuestro-colegio.html">Nuestro colegio</a></li>
+          <li><a href="admisiones.html">Admisiones 2027</a></li>
+          <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="contact">
+          <li><svg class="icon"><use href="#i-pin"/></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio%20San%20Jos%C3%A9%20de%20Calasanz%20Ch%C3%ADa" target="_blank" rel="noopener">Km 9,3 Autopista Norte · Vereda Yerbabuena, Chía</a></li>
+          <li><svg class="icon"><use href="#i-chat"/></svg><a href="https://wa.link/hoishm" target="_blank" rel="noopener">WhatsApp 304 274 9654</a></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+573152063987">Celular 315 206 3987</a></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><a href="mailto:infosjcchia@sanjosedecalasanz.edu.co">infosjcchia@sanjosedecalasanz.edu.co</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span class="proto-note"><!-- PROTOTIPO: borrar al publicar como sitio oficial -->Prototipo conceptual de rediseño · No es el sitio oficial del colegio.</span>
+      <span>Información tomada de las piezas de Bienestar del sitio actual, el menú de julio 2026 y el protocolo de salud escolar.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.link/hoishm" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+
+<script src="app.js?v=13"></script>
+<script>
+(function () {
+  // Semáforo para resolver conflictos
+  var STEPS = [
+    { c: '#E5484D', k: 'Luz roja', t: 'Alto', p: 'Tranquilízate y piensa antes de actuar.', s: 'La rabia, la ansiedad y la prisa nos hacen cometer más errores.' },
+    { c: 'var(--orange)', k: 'Luz amarilla', t: 'Piensa', p: 'Busca alternativas y posibles soluciones.', s: 'Define bien el problema y piensa qué pasaría con cada opción.' },
+    { c: '#5E8200', k: 'Luz verde', t: 'Adelante', p: 'Pon en práctica la mejor solución.', s: 'Si no sale como esperabas, ganas experiencia. Y siempre puedes pedir apoyo.' }
+  ];
+  var lamps = document.querySelectorAll('.lamp');
+  var panel = document.getElementById('sema-panel');
+  lamps.forEach(function (lamp, i) {
+    lamp.addEventListener('click', function () {
+      lamps.forEach(function (l) { l.setAttribute('aria-pressed', String(l === lamp)); });
+      var s = STEPS[i];
+      panel.style.setProperty('--c', s.c);
+      panel.querySelector('.k').textContent = s.k;
+      panel.querySelector('h4').textContent = s.t;
+      panel.querySelector('p').textContent = s.p;
+      panel.querySelector('small').textContent = s.s;
+    });
+  });
+
+  // Arma tu lonchera: un alimento por grupo; tocar de nuevo lo quita
+  var box = document.querySelector('[data-lunch]');
+  var NAMES = { cereal: 'cereales y harinas', fruta: 'frutas y verduras', animal: 'origen animal' };
+  var picks = {};
+  var verdict = box.querySelector('.verdict');
+  var note = box.querySelector('.treat-note');
+  function render() {
+    box.querySelectorAll('.slot').forEach(function (slot) {
+      var pick = picks[slot.getAttribute('data-slot')];
+      slot.classList.toggle('on', !!pick);
+      slot.querySelector('.e').textContent = pick ? pick.getAttribute('data-e') : '·';
+      slot.lastChild.textContent = pick ? pick.lastChild.textContent.trim() : slot.getAttribute('data-label');
+    });
+    var missing = Object.keys(NAMES).filter(function (g) { return !picks[g]; });
+    var done = missing.length === 0;
+    verdict.classList.toggle('done', done);
+    if (done) verdict.textContent = '¡Lonchera balanceada! Tiene un alimento de cada grupo.';
+    else if (missing.length === 3) verdict.textContent = 'Elige un alimento de cada grupo.';
+    else verdict.textContent = 'Vas bien. Te falta: ' + missing.map(function (g) { return NAMES[g]; }).join(' y ') + '.';
+    note.hidden = !picks.antojo;
+  }
+  box.querySelectorAll('.slot').forEach(function (slot) { slot.setAttribute('data-label', slot.lastChild.textContent); });
+  box.querySelectorAll('.food').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var g = btn.getAttribute('data-g');
+      var same = picks[g] === btn;
+      box.querySelectorAll('.food[data-g="' + g + '"]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      if (same) delete picks[g];
+      else { picks[g] = btn; btn.setAttribute('aria-pressed', 'true'); }
+      render();
+    });
+  });
+})();
+</script>
+</body>
+</html>

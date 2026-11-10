@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calasanz Chía — Rediseño</title>
+<meta name="robots" content="noindex, nofollow"> <!-- PROTOTIPO: borrar al publicar como sitio oficial -->
+<meta name="description" content="Prototipo conceptual de rediseño del sitio del Colegio San José de Calasanz (Chía) con la paleta institucional escolapia. No es el sitio oficial.">
+<link rel="icon" href="img/escudo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="estilos.css?v=13">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8M12 17.5v-11"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.4 4.5 5 4.6"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+</svg>
+
+<!-- Barra superior -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="info">
+      <span><svg class="icon"><use href="#i-pin"/></svg> Km 9,3 · Vereda Yerbabuena, Chía</span>
+      <a href="https://wa.link/hoishm" target="_blank" rel="noopener"><span><svg class="icon"><use href="#i-chat"/></svg> WhatsApp 304 274 9654</span></a>
+    </div>
+    <div class="soc">
+      <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+      <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Plataforma Master2000</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Principal">
+    <a class="brand" href="#inicio">
+      <img src="img/escudo.png" alt="Escudo del Colegio San José de Calasanz">
+      <span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span>
+    </a>
+    <ul class="menu">
+      <li>
+        <button type="button" aria-haspopup="true">Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+          <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+          <li><a href="nuestro-colegio.html#pedagogia">Propuesta pedagógica</a></li>
+          <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+          <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+          <li><a href="nuestro-colegio.html#documentos">Manual, PEI y documentos</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Académico <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="academico.html#grados">Mi grado y plan de estudios</a></li>
+          <li><a href="academico.html#aprendemos">Cómo aprendemos</a></li>
+          <li><a href="academico.html#evaluacion">Sistema de evaluación</a></li>
+          <li><a href="academico.html#proyectos">Proyectos transversales</a></li>
+          <li><a href="academico.html#docentes">Directorio y atención a padres</a></li>
+          <li><a href="academico.html#recursos">Textos y plataformas</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="bienestar.html#psico">Psicoorientación</a></li>
+          <li><a href="bienestar.html#salud">Salud y póliza estudiantil</a></li>
+          <li><a href="bienestar.html#restaurante">Restaurante y loncheras</a></li>
+          <li><a href="bienestar.html#rutas">Rutas escolares</a></li>
+          <li><a href="bienestar.html#biblioteca">Biblioteca</a></li>
+          <li><a href="bienestar.html#extraescolares">Extraescolares</a></li>
+        </ul></div>
+      </li>
+      <li>
+        <button type="button" aria-haspopup="true">Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></button>
+        <div class="sub"><ul>
+          <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+          <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+          <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+          <li><a href="comunicaciones.html#noticias">Noticias</a></li>
+          <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+          <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos (SQRR)</a></li>
+          <li><a href="#siguenos">Redes sociales y videos</a></li>
+        </ul></div>
+      </li>
+      <li><a href="casa-olesa.html">Casa Olesa</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+    </ul>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo</a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </nav>
+</header>
+
+<!-- Menú móvil -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="top">
+      <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+      <button class="burger" type="button" data-close aria-label="Cerrar menú"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <details><summary>Nuestro colegio <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="nuestro-colegio.html#horizonte">Misión y visión</a></li>
+      <li><a href="nuestro-colegio.html#valores">Valores</a></li>
+      <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+      <li><a href="nuestro-colegio.html#campus">Campus</a></li>
+      <li><a href="nuestro-colegio.html#comunidad">Organigrama</a></li>
+      <li><a href="nuestro-colegio.html#documentos">Documentos</a></li>
+    </ul></details>
+    <details><summary>Académico <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="academico.html#grados">Mi grado y plan de estudios</a></li>
+      <li><a href="academico.html#evaluacion">Sistema de evaluación</a></li>
+      <li><a href="academico.html#docentes">Directorio y atención a padres</a></li>
+      <li><a href="academico.html#recursos">Textos y plataformas</a></li>
+    </ul></details>
+    <details><summary>Bienestar <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="bienestar.html#psico">Psicoorientación</a></li>
+      <li><a href="bienestar.html#salud">Salud y póliza estudiantil</a></li>
+      <li><a href="bienestar.html#restaurante">Restaurante y loncheras</a></li>
+      <li><a href="bienestar.html#rutas">Rutas escolares</a></li>
+    </ul></details>
+    <details><summary>Comunicaciones <svg class="icon chev"><use href="#i-chev"/></svg></summary><ul>
+      <li><a href="comunicaciones.html#agenda">Agenda de fin de año</a></li>
+      <li><a href="comunicaciones.html#circulares">Circulares</a></li>
+      <li><a href="comunicaciones.html#calendario">Calendario 2026</a></li>
+      <li><a href="comunicaciones.html#canales">Canales oficiales</a></li>
+      <li><a href="comunicaciones.html#sqrr">Sugerencias y reclamos</a></li>
+    </ul></details>
+    <a class="solo" href="casa-olesa.html">Casa de Encuentros Olesa <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="galeria.html">Galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="solo" href="#contacto">Contacto <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo 2027</a>
+  </div>
+</div>
+
+<main id="inicio">
+
+  <!-- HERO: carrusel con fondos en movimiento -->
+  <section class="hero hero-slider" data-slider aria-roledescription="carrusel" aria-label="Destacados">
+    <article class="slide active" aria-roledescription="diapositiva" aria-label="1 de 6">
+      <div class="slide-bg" style="background-image:url('img/once-2026.jpg'); background-position:50% 30%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Escuelas Pías · Chía, Cundinamarca</span>
+        <h1>Piedad y letras para <span class="pill">crecer</span> en libertad</h1>
+        <p class="hero-lead">De Pre-jardín a Once, en un campus verde a las afueras de Chía. Formamos con valores, espiritualidad y amor por la naturaleza.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="admisiones.html">Solicita tu cupo 2027 <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="#por-que">Conoce el colegio</a>
+        </div>
+        <div class="hero-facts">
+          <div><b>1829</b><span>legado de Madre Paula</span></div>
+          <div><b>14</b><span>grados, de Pre-jardín a Once</span></div>
+          <div><b>Km 9,3</b><span>campus rodeado de verde</span></div>
+        </div>
+      </div>
+      <span class="slide-tag">Grado Once · 2026</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="2 de 6">
+      <div class="slide-bg" style="background-image:url('img/galeria/comunidad-capilla.jpg'); background-position:50% 45%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Familia escolapia</span>
+        <h2 class="slide-title">Una gran <span class="pill">familia</span></h2>
+        <p class="hero-lead">Estudiantes, docentes y Madres Escolapias compartimos la fe y el día a día del colegio.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="galeria.html">Ver la galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="nuestro-colegio.html#valores">Nuestros valores</a>
+        </div>
+      </div>
+      <span class="slide-tag">Encuentro en la capilla</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="3 de 6">
+      <div class="slide-bg" style="background-image:url('img/olesa/olesa-arcos.jpg'); background-position:50% 55%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Nuevo · Junto al colegio</span>
+        <h2 class="slide-title">Casa de Encuentros <span class="pill">Olesa</span></h2>
+        <p class="hero-lead">Patios, jardines y salones para detenerse, orar y compartir.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="casa-olesa.html">Conoce la Casa Olesa <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <span class="slide-tag">Casa de Encuentros Olesa</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="4 de 6">
+      <div class="slide-bg" style="background-image:url('img/galeria/trajes-tipicos.jpg'); background-position:50% 55%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Identidad y cultura</span>
+        <h2 class="slide-title">Celebramos lo que <span class="pill">somos</span></h2>
+        <p class="hero-lead">Trajes típicos, banderas y tradiciones que vivimos juntos en el campus.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="galeria.html#primaria">Ver la galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <span class="slide-tag">Trajes típicos</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="5 de 6">
+      <div class="slide-bg" style="background-image:url('img/olesa/olesa-jardin.jpg'); background-position:50% 40%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Nuestra historia</span>
+        <h2 class="slide-title">El legado de <span class="pill">Madre Paula</span></h2>
+        <p class="hero-lead">Desde 1829, Santa Paula Montal abrió escuelas para quienes casi nadie educaba. Hoy seguimos su intuición en Chía.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="nuestro-colegio.html#historia">Conoce nuestra historia <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="admisiones.html">Admisiones 2027</a>
+        </div>
+      </div>
+      <span class="slide-tag">Jardín del Sagrado Corazón</span>
+    </article>
+    <article class="slide" aria-roledescription="diapositiva" aria-label="6 de 6">
+      <div class="slide-bg" style="background-image:url('img/galeria/primera-comunion.jpg'); background-position:50% 30%"></div>
+      <div class="slide-shade"></div>
+      <div class="wrap slide-content">
+        <span class="kicker">Vida de fe</span>
+        <h2 class="slide-title">Crecer en la <span class="pill">fe</span></h2>
+        <p class="hero-lead">Primeras comuniones y celebraciones que acompañan a cada familia.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-yellow" href="galeria.html#primaria">Ver la galería <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <span class="slide-tag">Primera comunión</span>
+    </article>
+    <div class="wrap slider-ui">
+      <div class="dots" role="group" aria-label="Elegir diapositiva">
+        <button type="button" data-dot aria-label="Ver diapositiva 1" aria-current="true"></button>
+        <button type="button" data-dot aria-label="Ver diapositiva 2"></button>
+        <button type="button" data-dot aria-label="Ver diapositiva 3"></button>
+        <button type="button" data-dot aria-label="Ver diapositiva 4"></button>
+        <button type="button" data-dot aria-label="Ver diapositiva 5"></button>
+        <button type="button" data-dot aria-label="Ver diapositiva 6"></button>
+      </div>
+      <div class="arrows-s">
+        <button type="button" data-toggle aria-pressed="false" aria-label="Pausar el carrusel"><svg class="icon i-pause"><use href="#i-pause"/></svg><svg class="icon i-play"><use href="#i-play"/></svg></button>
+        <button type="button" data-prev aria-label="Diapositiva anterior"><svg class="icon"><use href="#i-arrow"/></svg></button>
+        <button type="button" data-next aria-label="Diapositiva siguiente"><svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESOS RÁPIDOS -->
+  <div class="wrap">
+    <nav class="quickbar" aria-label="Accesos rápidos">
+      <a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-monitor"/></svg></span><span><b>Plataforma académica</b><small>Master2000</small></span></a>
+      <a href="https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=1217&amp;searchedCategoryId=&amp;searchedAgreementName=COLEGIO%20SAN%20JOSE%20DE%20CALASANZ%20CHIA" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-card"/></svg></span><span><b>Pagos en línea</b><small>Mi Pago Amigo</small></span></a>
+      <a href="https://modulo.master2000.net/recursos/uploads/338/MANUAL_BOLETINES_2020.pdf" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-file"/></svg></span><span><b>Boletín virtual</b><small>Instructivo</small></span></a>
+      <a href="https://modulo.master2000.net/recursos/uploads/338/MANUAL_RECIBOS_2020.pdf" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-receipt"/></svg></span><span><b>Recibo de pago</b><small>Instructivo</small></span></a>
+      <a href="https://www.master2000.net/recursos/uploads/338/2026/renovaciondecupo2027/CircularReservadeCupo2027sanjosedecalasanzpdf.pdf" target="_blank" rel="noopener"><span class="ico"><svg class="icon"><use href="#i-cal"/></svg></span><span><b>Reserva de cupo</b><small>Antiguos 2027</small></span></a>
+      <a href="#oferta"><span class="ico"><svg class="icon"><use href="#i-list"/></svg></span><span><b>Listas escolares</b><small>2026, por grado</small></span></a>
+    </nav>
+  </div>
+
+  <!-- CINTA -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Piedad y letras<i>✦</i></span><span>Naturaleza que educa<i>✦</i></span><span>Espacios que inspiran<i>✦</i></span><span>Familia escolapia<i>✦</i></span>
+      <span>Piedad y letras<i>✦</i></span><span>Naturaleza que educa<i>✦</i></span><span>Espacios que inspiran<i>✦</i></span><span>Familia escolapia<i>✦</i></span>
+    </div>
+  </div>
+
+  <!-- POR QUÉ -->
+  <section id="por-que">
+    <div class="wrap why">
+      <div class="why-wrap reveal">
+        <div class="why-photo"><span class="crop" style="--cx:.55;--cy:.52;--cw:.43;--ch:.38"><img src="img/sitio/campus-jardines.jpg" alt="Edificios y jardines del campus en Chía"></span></div>
+        <div class="why-badge"><b>1829</b><span>Madre Paula Montal abre en Figueres su primera escuela para niñas</span></div>
+      </div>
+      <div>
+        <div class="head reveal">
+          <span class="kicker">¿Por qué Calasanz?</span>
+          <h2>El sueño de <span class="mark">Madre Paula</span>, desde 1829</h2>
+          <p>Santa Paula Montal abrió escuelas para las niñas cuando casi nadie las educaba. Las Madres Escolapias, la congregación que fundó en 1847, mantienen viva esa intuición en Chía con un lema sencillo: piedad y letras.</p>
+        </div>
+        <div class="features">
+          <div class="feature reveal"><span class="ico" style="background:var(--purple)"><svg class="icon"><use href="#i-book"/></svg></span><h3>Piedad y letras</h3><p>Fe y conocimiento que caminan juntos en cada grado.</p></div>
+          <div class="feature reveal"><span class="ico" style="background:var(--green)"><svg class="icon"><use href="#i-leaf"/></svg></span><h3>Naturaleza que educa</h3><p>Zonas verdes y espacios abiertos en la Vereda Yerbabuena.</p></div>
+          <div class="feature reveal"><span class="ico" style="background:var(--teal)"><svg class="icon"><use href="#i-heart"/></svg></span><h3>Acompañamiento</h3><p>Psicoorientación y una ruta de atención para cada estudiante.</p></div>
+          <div class="feature reveal"><span class="ico" style="background:var(--blue)"><svg class="icon"><use href="#i-users"/></svg></span><h3>Familia escolapia</h3><p>Parte de la Provincia Colombia de las Madres Escolapias.</p></div>
+        </div>
+        <a class="more reveal" href="nuestro-colegio.html">Conoce nuestra historia y valores <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta" class="bg-soft">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Oferta educativa</span>
+        <h2>Un camino de Pre-jardín a <span class="mark">Once</span></h2>
+        <p>Tres etapas, un mismo proyecto. Aquí también encuentras las listas escolares 2026 de cada grado.</p>
+      </div>
+      <div class="levels">
+        <article class="level reveal">
+          <div class="ph"><span class="tag" style="background:#5E8200">Preescolar</span><span class="crop" style="--cx:.55;--cy:.45;--cw:.42;--ch:.44"><img src="img/sitio/campus-parque.jpg" alt="Parque infantil del colegio"></span></div>
+          <div class="body">
+            <h3>Primeros pasos</h3>
+            <p>Juego, descubrimiento y afecto para empezar la vida escolar con confianza.</p>
+            <span class="grades-label">Listas 2026</span>
+            <div class="grades">
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184969_Listas%20escolares%202026%20prejardin.pdf" target="_blank" rel="noopener">Pre-jardín</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184970_Listas%20escolares%202026%20jardin.pdf" target="_blank" rel="noopener">Jardín</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184971_Listas%20escolares%202026%20transicion.pdf" target="_blank" rel="noopener">Transición</a>
+            </div>
+            <a class="more" href="admisiones.html#pasos">Proceso de admisión <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="level reveal">
+          <div class="ph"><span class="tag" style="background:#2F7A8C">Básica primaria</span><span class="crop" style="--cx:.025;--cy:.03;--cw:.47;--ch:.42"><img src="img/sitio/campus-jardines.jpg" alt="Edificio de aulas"></span></div>
+          <div class="body">
+            <h3>Aprender a aprender</h3>
+            <p>Bases sólidas en lectura, ciencia y convivencia, de primero a quinto.</p>
+            <span class="grades-label">Listas 2026</span>
+            <div class="grades">
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184972_Listas%20escolares%202026%20primero.pdf" target="_blank" rel="noopener">1°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184973_Listas%20escolares%202026%20segundo.pdf" target="_blank" rel="noopener">2°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184974_Listas%20escolares%202026%20tercero.pdf" target="_blank" rel="noopener">3°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184975_Listas%20escolares%202026%20cuarto.pdf" target="_blank" rel="noopener">4°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184976_Listas%20escolares%202026%20quinto.pdf" target="_blank" rel="noopener">5°</a>
+            </div>
+            <a class="more" href="admisiones.html#pasos">Proceso de admisión <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="level reveal">
+          <div class="ph"><span class="tag" style="background:var(--purple)">Secundaria y media</span><span class="crop" style="--cx:.025;--cy:.03;--cw:.47;--ch:.42"><img src="img/sitio/campus-aulas.jpg" alt="Campus y zonas verdes"></span></div>
+          <div class="body">
+            <h3>Rumbo a tu proyecto de vida</h3>
+            <p>De sexto a once: pensamiento crítico, liderazgo y preparación para lo que sigue.</p>
+            <span class="grades-label">Listas 2026</span>
+            <div class="grades">
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184977_Listas%20escolares%202026%20sexto.pdf" target="_blank" rel="noopener">6°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184978_Listas%20escolares%202026%20septimo.pdf" target="_blank" rel="noopener">7°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184979_Listas%20escolares%202026%20octavo.pdf" target="_blank" rel="noopener">8°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184980_Listas%20escolares%202026%20noveno.pdf" target="_blank" rel="noopener">9°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184981_Listas%20escolares%202026%20decimo.pdf" target="_blank" rel="noopener">10°</a>
+              <a href="https://www.master2000.net/recursos/menu/338/11080/mper_arch_184982_Listas%20escolares%202026%20undecimo.pdf" target="_blank" rel="noopener">11°</a>
+            </div>
+            <a class="more" href="admisiones.html#pasos">Proceso de admisión <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISIONES -->
+  <section id="admisiones">
+    <div class="wrap">
+      <div class="admit reveal">
+        <span class="badge">✦ Inscripciones 2027 abiertas</span>
+        <h2>Tu lugar está en Calasanz</h2>
+        <p>Conoce los términos de admisión y escríbenos para agendar una visita al campus.</p>
+        <div class="actions">
+          <a class="btn btn-yellow" href="https://wa.link/hoishm" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> Escríbenos por WhatsApp</a>
+          <a class="btn btn-orange" href="admisiones.html">Ver el proceso paso a paso</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Información y servicios</span>
+        <h2>Trámites y servicios <span class="mark">sin vueltas</span></h2>
+        <p>Lo que más buscan estudiantes y familias, a un clic.</p>
+      </div>
+      <div class="services">
+        <a class="svc svc-blue reveal" href="#comunicaciones"><svg class="icon big"><use href="#i-mega"/></svg><span class="ico"><svg class="icon"><use href="#i-mega"/></svg></span><h3>Circulares</h3><p>Las comunicaciones oficiales más recientes.</p><span class="go">Ver circulares <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+        <a class="svc svc-teal reveal" href="bienestar.html#psico"><svg class="icon big"><use href="#i-heart"/></svg><span class="ico"><svg class="icon"><use href="#i-heart"/></svg></span><h3>Bienestar</h3><p>Ruta de atención de psicoorientación.</p><span class="go">Ingresar <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+        <a class="svc svc-purple reveal" href="academico.html#docentes"><svg class="icon big"><use href="#i-clock"/></svg><span class="ico"><svg class="icon"><use href="#i-clock"/></svg></span><h3>Atención a padres</h3><p>Horarios para hablar con docentes y directivos.</p><span class="go">Ver horarios <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+        <a class="svc svc-green reveal" href="comunicaciones.html#sqrr"><svg class="icon big"><use href="#i-shield"/></svg><span class="ico"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Calidad y SQRR</h3><p>Sugerencias, quejas, reclamos y reconocimientos.</p><span class="go">Ir al formulario <svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOMENTOS -->
+  <section id="momentos" class="bg-soft">
+    <div class="wrap" data-scroller>
+      <div class="row-head reveal">
+        <div class="head">
+          <span class="kicker">Galería</span>
+          <h2>Así se vive <span class="mark">el cole</span></h2>
+          <p>Celebraciones, eucaristías, deporte y encuentros del año escolar.</p>
+          <a class="more" href="galeria.html">Ver la galería completa <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="arrows">
+          <button class="arrow" type="button" data-prev aria-label="Anterior"><svg class="icon"><use href="#i-left"/></svg></button>
+          <button class="arrow" type="button" data-next aria-label="Siguiente"><svg class="icon"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="track reveal">
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-1.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-2.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-3.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-4.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-5.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-6.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-7.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+        <figure class="story"><img loading="lazy" src="img/sitio/momentos-8.jpg" alt="Evento institucional"><figcaption>Eventos</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÍGUENOS: videos de TikTok e Instagram -->
+  <section id="siguenos">
+    <div class="wrap">
+      <div class="row-head">
+        <div class="head reveal">
+          <span class="kicker">Síguenos</span>
+          <h2>Así se vive Calasanz <span class="mark">en redes</span></h2>
+          <p>Grados, Modelo ONU, celebraciones y el día a día del colegio, en video.</p>
+        </div>
+        <div class="social-pills reveal">
+          <a class="sp sp-ig" href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-ig"/></svg><span><b>Instagram</b><small>@sanjosedecalasanzchia</small></span></a>
+          <a class="sp sp-tt" href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener"><svg class="icon"><use href="#i-tt"/></svg><span><b>TikTok</b><small>@sjcalasanz</small></span></a>
+          <a class="sp sp-fb" href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener"><svg class="icon"><use href="#i-fb"/></svg><span><b>Facebook</b><small>San José de Calasanz</small></span></a>
+        </div>
+      </div>
+      <div class="vtabs reveal" role="tablist" aria-label="Elegir red social">
+        <button type="button" role="tab" id="vt-tt" aria-controls="vp-tt" aria-selected="true">TikTok</button>
+        <button type="button" role="tab" id="vt-ig" aria-controls="vp-ig" aria-selected="false" tabindex="-1">Instagram</button>
+      </div>
+      <div class="videos reveal" id="vp-tt" role="tabpanel" aria-labelledby="vt-tt">
+        <figure class="phone"><iframe loading="lazy" src="https://www.tiktok.com/player/v1/7704475085377211666?rel=0&amp;music_info=0&amp;description=0" title="Video de TikTok: promoción 2026" allow="fullscreen; encrypted-media" allowfullscreen></iframe><figcaption><svg class="icon"><use href="#i-tt"/></svg>Promoción 2026</figcaption></figure>
+        <figure class="phone"><iframe loading="lazy" src="https://www.tiktok.com/player/v1/7581530774265007368?rel=0&amp;music_info=0&amp;description=0" title="Video de TikTok: recuerdos del Modelo ONU 2025" allow="fullscreen; encrypted-media" allowfullscreen></iframe><figcaption><svg class="icon"><use href="#i-tt"/></svg>Modelo ONU 2025</figcaption></figure>
+        <figure class="phone"><iframe loading="lazy" src="https://www.tiktok.com/player/v1/7580574334880582930?rel=0&amp;music_info=0&amp;description=0" title="Video de TikTok: SJC 2025" allow="fullscreen; encrypted-media" allowfullscreen></iframe><figcaption><svg class="icon"><use href="#i-tt"/></svg>SJC 2025</figcaption></figure>
+      </div>
+      <div class="videos" id="vp-ig" role="tabpanel" aria-labelledby="vt-ig" hidden>
+        <figure class="phone ig"><iframe loading="lazy" src="https://www.instagram.com/reel/DdczD-Ktzuu/embed/" title="Reel de Instagram del colegio (1)" allowfullscreen></iframe></figure>
+        <figure class="phone ig"><iframe loading="lazy" src="https://www.instagram.com/reel/DdcwuYetbQd/embed/" title="Reel de Instagram del colegio (2)" allowfullscreen></iframe></figure>
+        <figure class="phone ig"><iframe loading="lazy" src="https://www.instagram.com/reel/DdW8FlCSNJe/embed/" title="Reel de Instagram del colegio (3)" allowfullscreen></iframe></figure>
+      </div>
+      <div class="videos-cta reveal">
+        <a class="btn btn-navy" href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-ig"/></svg> Seguir en Instagram</a>
+        <a class="btn btn-white" href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener"><svg class="icon"><use href="#i-tt"/></svg> Ver más en TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMUNICACIONES -->
+  <section id="comunicaciones">
+    <div class="wrap">
+      <div class="head center reveal">
+        <span class="kicker">Comunicaciones</span>
+        <h2>Entérate de <span class="mark">todo</span></h2>
+        <p>Circulares oficiales y el calendario institucional, siempre al día.</p>
+      </div>
+      <div class="comms">
+        <div class="card reveal">
+          <div class="card-head"><h3>Circulares</h3><a class="chip" href="comunicaciones.html#circulares">Ver todas</a></div>
+          <ul class="circ">
+            <li><a style="--c:var(--blue)" href="https://www.master2000.net/recursos/menu/338/4625/mper_216057_Circular_No_029_%20Ev.%20periodo%20tercer%20trimestre.pdf" target="_blank" rel="noopener"><span class="num"><small>N.º</small><b>29</b></span><span><span class="t">Pruebas de periodo, tercer trimestre</span><span class="cat">Académico</span></span><svg class="icon"><use href="#i-out"/></svg></a></li>
+            <li><a style="--c:var(--purple)" href="https://www.master2000.net/recursos/menu/338/4625/mper_216056_Circular_No_028_%20actividades%20fin%20de%20ano%20escolar.pdf" target="_blank" rel="noopener"><span class="num"><small>N.º</small><b>28</b></span><span><span class="t">Actividades de fin de año escolar</span><span class="cat">Eventos</span></span><svg class="icon"><use href="#i-out"/></svg></a></li>
+            <li><a style="--c:#B87800" href="https://www.master2000.net/recursos/menu/338/4625/mper_216045_Circular_No_027_%20reserva%20de%20cupo%202027.pdf" target="_blank" rel="noopener"><span class="num"><small>N.º</small><b>27</b></span><span><span class="t">Reserva de cupo 2027</span><span class="cat">Matrículas</span></span><svg class="icon"><use href="#i-out"/></svg></a></li>
+            <li><a style="--c:#2F7A8C" href="https://www.master2000.net/recursos/menu/338/4625/mper_216025_Circular_No_026_%20Aprobacion%20costos%20educativos%202027.pdf" target="_blank" rel="noopener"><span class="num"><small>N.º</small><b>26</b></span><span><span class="t">Aprobación de costos educativos 2027</span><span class="cat">Administrativo</span></span><svg class="icon"><use href="#i-out"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <div class="card-head"><h3>Calendario</h3><a class="chip" href="https://calendar.google.com/calendar/embed?src=d527ceca09b9ee38167eba865f2a040bb36f9248f85addee3e4d79bd21b1cea5%40group.calendar.google.com&amp;ctz=America%2FBogota" target="_blank" rel="noopener">Abrir completo</a></div>
+          <div class="cal"><iframe loading="lazy" title="Calendario institucional" src="https://calendar.google.com/calendar/embed?src=d527ceca09b9ee38167eba865f2a040bb36f9248f85addee3e4d79bd21b1cea5%40group.calendar.google.com&amp;ctz=America%2FBogota&amp;mode=AGENDA&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTabs=0&amp;bgcolor=%23ffffff"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGULLO -->
+  <section class="bg-cream honor">
+    <div class="wrap" data-scroller>
+      <div class="row-head reveal">
+        <div class="head">
+          <span class="kicker">Cuadro de honor</span>
+          <h2>Orgullo <span class="mark">Calasanz</span></h2>
+          <p>Celebramos a quienes se destacan por su esfuerzo, liderazgo y servicio.</p>
+        </div>
+        <div class="arrows">
+          <button class="arrow" type="button" data-prev aria-label="Anterior"><svg class="icon"><use href="#i-left"/></svg></button>
+          <button class="arrow" type="button" data-next aria-label="Siguiente"><svg class="icon"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="track reveal">
+        <img loading="lazy" src="img/sitio/honor-2026-1.jpg" alt="Cuadro de honor 2026">
+        <img loading="lazy" src="img/sitio/honor-2026-2.jpg" alt="Cuadro de honor 2026">
+        <img loading="lazy" src="img/sitio/honor-2026-3.jpg" alt="Cuadro de honor 2026">
+        <img loading="lazy" src="img/sitio/honor-2026-4.jpg" alt="Cuadro de honor 2026">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="brand"><img src="img/escudo.png" alt=""><span><b>San José de Calasanz</b><small>CHÍA · ESCUELAS PÍAS</small></span></span>
+        <p class="about">Colegio escolapio en Chía, Cundinamarca. Piedad y letras de Pre-jardín a Once.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/sanjose.decalasanz.144" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+          <a href="https://www.instagram.com/sanjosedecalasanzchia/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+          <a href="https://www.tiktok.com/@sjcalasanz" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>El colegio</h4>
+        <ul>
+          <li><a href="nuestro-colegio.html#horizonte">Horizonte institucional</a></li>
+          <li><a href="nuestro-colegio.html#historia">Reseña histórica</a></li>
+          <li><a href="#oferta">Oferta educativa</a></li>
+          <li><a href="admisiones.html">Admisiones 2027</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Plataformas</h4>
+        <ul>
+          <li><a href="https://login.master2000.net/ingreso/?A=425175000365&amp;&amp;" target="_blank" rel="noopener">Master2000</a></li>
+          <li><a href="https://www.mipagoamigo.com/MPA_WebSite/ServicePayments/StartPayment?id=1217&amp;searchedCategoryId=&amp;searchedAgreementName=COLEGIO%20SAN%20JOSE%20DE%20CALASANZ%20CHIA" target="_blank" rel="noopener">Mi Pago Amigo</a></li>
+          <li><a href="https://payment.santillanacompartir.com/co/comp/welcome" target="_blank" rel="noopener">Santillana Compartir</a></li>
+          <li><a href="https://consultadocumentos.segurosdelestado.com/consultar/SEGUROS%20DE%20VIDA%20DEL%20ESTADO/Estudiantil/identificacion" target="_blank" rel="noopener">Póliza estudiantil</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul class="contact">
+          <li><svg class="icon"><use href="#i-pin"/></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=Colegio%20San%20Jos%C3%A9%20de%20Calasanz%20Ch%C3%ADa" target="_blank" rel="noopener">Km 9,3 · Vereda Yerbabuena, Chía, Cundinamarca</a></li>
+          <li><svg class="icon"><use href="#i-chat"/></svg><a href="https://wa.link/hoishm" target="_blank" rel="noopener">WhatsApp 304 274 9654</a></li>
+          <li><svg class="icon"><use href="#i-phone"/></svg><a href="tel:+573152063987">Celular 315 206 3987</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span class="proto-note"><!-- PROTOTIPO: borrar al publicar como sitio oficial -->Prototipo conceptual de rediseño · No es el sitio oficial del colegio.</span>
+      <span>Paleta institucional escolapia · Contenido e imágenes: sanjosedecalasanz.edu.co</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.link/hoishm" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+
+<script src="app.js?v=13"></script>
+<script>
+(function () {
+  // Síguenos: pestañas TikTok / Instagram (los videos se cargan solo al mostrarse)
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.vtabs [role="tab"]'));
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { select(tab); });
+    tab.addEventListener('keydown', function (e) {
+      var next = e.key === 'ArrowRight' ? tabs[(i + 1) % tabs.length] : e.key === 'ArrowLeft' ? tabs[(i - 1 + tabs.length) % tabs.length] : null;
+      if (next) { e.preventDefault(); select(next); next.focus(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
